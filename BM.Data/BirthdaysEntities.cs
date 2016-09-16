@@ -1,5 +1,6 @@
 ﻿using BM.Data.Configuration;
 using BM.Model;
+using BM.Model.Models;
 using System.Data.Entity;
 
 namespace BM.Data
@@ -10,6 +11,11 @@ namespace BM.Data
 
         public DbSet<Gadget> Gadgets { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<BirthdayArrangement> BirthdayArrangements { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Gift> Gifts { get; set; }
 
         public virtual void Commit()
         {
