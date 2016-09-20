@@ -26,6 +26,19 @@ namespace BM.Data
         {
             modelBuilder.Configurations.Add(new GadgetConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
+
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BirthdaysEntities>());
+
+            modelBuilder.Entity<User>()
+                .HasMany(t => t.BirthdayArrangements)
+                .WithMany(t => t.Users);
+
+            modelBuilder.Entity<BirthdayArrangement>()
+                .HasMany(t => t.Users)
+                .WithMany(t => t.BirthdayArrangements);
+
+            //modelBuilder.Entity<BirthdayArrangement>()
+            //    .HasRequired(e => e.User);
         }
     }
 }

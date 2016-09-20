@@ -5,7 +5,7 @@ namespace BM.Model.Models
 {
     public class User
     {
-        public int Id { get; set; }
+        public int UserId { get; set; }
         public string Username { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -16,18 +16,19 @@ namespace BM.Model.Models
         public int RoleId { get; set; }
         public Role Role { get; set; }
 
-        public virtual List<BirthdayArrangement> BirthdayArrangements { get; set; }
+        public virtual ICollection<BirthdayArrangement> BirthdayArrangements { get; set; }
+        public virtual ICollection<Payment> Payments { get; set; }
     }
 
     public class Role
     {
-        public int Id { get; set; }
+        public int RoleId { get; set; }
         public string Name { get; set; }
     }
 
     public class BirthdayArrangement
     {
-        public int Id { get; set; }
+        public int BirthdayArrangementId { get; set; }
         public DateTime Date { get; set; }
         public bool IsPassed { get; set; }
 
@@ -37,20 +38,12 @@ namespace BM.Model.Models
         public int UserId { get; set; }
         public User User { get; set; }
 
-        public virtual List<User> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
-
-    //public class BirthdayAssigment
-    //{
-    //    public int BirthdayArrangementId { get; set; }
-    //    public BirthdayArrangement BirthdayArrangement { get; set; }
-    //    public int UserId { get; set; }
-    //    public User User { get; set; }
-    //}
 
     public class Gift
     {
-        public int Id { get; set; }
+        public int GiftId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Amount { get; set; }
@@ -59,7 +52,7 @@ namespace BM.Model.Models
 
     public class Payment
     {
-        public int Id { get; set; }
+        public int PaymentId { get; set; }
         public string Message { get; set; }
         public DateTime Date { get; set; }
         public decimal Amount { get; set; }
