@@ -1,5 +1,4 @@
-﻿using BM.Data;
-using BM.Web.App_Start;
+﻿using BM.Web.App_Start;
 using System;
 using System.Web;
 using System.Web.Http;
@@ -14,9 +13,6 @@ namespace BM.Web
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
-
-            // Init database
-            System.Data.Entity.Database.SetInitializer(new BirthdaysSeedData());
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

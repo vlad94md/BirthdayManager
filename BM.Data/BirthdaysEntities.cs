@@ -7,7 +7,11 @@ namespace BM.Data
 {
     public class BirthdaysEntities : DbContext
     {
-        public BirthdaysEntities() : base("BMEntities") { }
+        public BirthdaysEntities() : base("BMEntities")
+        {
+            Database.SetInitializer(new BirthdaysSeedData());
+            Database.Initialize(true);
+        }
 
         public DbSet<Gadget> Gadgets { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -26,19 +30,24 @@ namespace BM.Data
         {
             modelBuilder.Configurations.Add(new GadgetConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
-
-            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BirthdaysEntities>());
+            modelBuilder.Configurations.Add(new UserConfiguration());
 
             modelBuilder.Entity<User>()
-                .HasMany(t => t.BirthdayArrangements)
-                .WithMany(t => t.Users);
+                .HasMany(t => t.BirthdaySubscriptions)
+                .WithMany(t => t.Сongratulators);
 
             modelBuilder.Entity<BirthdayArrangement>()
-                .HasMany(t => t.Users)
-                .WithMany(t => t.BirthdayArrangements);
+                .HasMany(t => t.Сongratulators)
+                .WithMany(t => t.BirthdaySubscriptions);
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Birthdays)
+                .WithRequired(b => b.BirthdayMan)
+                .HasForeignKey(s => s.BirthdayManId)
+                .WillCascadeOnDelete(false);
 
             //modelBuilder.Entity<BirthdayArrangement>()
-            //    .HasRequired(e => e.User);
+            //    .HasRequired(e => e.BirthdayMan);
         }
     }
 }

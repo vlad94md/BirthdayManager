@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
+﻿using AutoMapper;
 using BM.Model;
 using BM.Service;
 using BM.Web.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using BM.Model.Models;
 
 namespace BM.Web.Controllers
 {
@@ -15,11 +14,13 @@ namespace BM.Web.Controllers
     {
         private readonly ICategoryService categoryService;
         private readonly IGadgetService gadgetService;
+        private readonly IUserService userService;
 
-        public HomeController(ICategoryService categoryService, IGadgetService gadgetService)
+        public HomeController(ICategoryService categoryService, IGadgetService gadgetService,  IUserService userService)
         {
             this.categoryService = categoryService;
             this.gadgetService = gadgetService;
+            this.userService = userService;
         }
 
         // GET: Home
@@ -29,6 +30,8 @@ namespace BM.Web.Controllers
             IEnumerable<Category> categories;
 
             categories = categoryService.GetCategories(category).ToList();
+            IEnumerable<User> users = userService.GetUsers().ToList();
+
 
             viewModelGadgets = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(categories);
             return View(viewModelGadgets);

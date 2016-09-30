@@ -1,17 +1,245 @@
-﻿using System.Collections.Generic;
+﻿using BM.Model;
+using BM.Model.Models;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity;
-using BM.Model;
+using System.Linq;
 
 namespace BM.Data
 {
     public class BirthdaysSeedData : DropCreateDatabaseIfModelChanges<BirthdaysEntities>
     {
-        protected override void Seed(BirthdaysEntities context)
+        private static BirthdaysEntities context;
+
+        protected override void Seed(BirthdaysEntities _context)
         {
+            context = _context;
+
             GetCategories().ForEach(c => context.Categories.Add(c));
             GetGadgets().ForEach(g => context.Gadgets.Add(g));
 
+            GetRoles().ForEach(c => context.Roles.Add(c));
+            GetUsers().ForEach(g => context.Users.Add(g));
             context.Commit();
+
+            GetPayments().ForEach(g => context.Payments.Add(g));
+            GetGifts().ForEach(g => context.Gifts.Add(g));
+            GetBirthdayArrangements().ForEach(g => context.BirthdayArrangements.Add(g));
+
+            context.Commit();
+        }
+
+        private static List<Role> GetRoles()
+        {
+            return new List<Role>
+            {
+                new Role {
+                    RoleId = 1,
+                    Name = "user"
+                },
+                new Role {
+                    RoleId = 2,
+                    Name = "admin"
+                }
+            };
+        }
+
+        private static List<User> GetUsers()
+        {
+            return new List<User>
+            {
+                new User {
+                    UserId = 1,
+                    FirstName = "Vladislav",
+                    LastName = "Guleaev",
+                    Username = "vguleaev",
+                    Password = "12345",
+                    Balance = 100,
+                    DateOfBirth = DateTime.Parse("04/08/1994"),
+                    RoleId = 2
+                },
+                new User {
+                    UserId = 2,
+                    FirstName = "Serghei",
+                    LastName = "Tibulschii",
+                    Username = "stibulschii",
+                    Password = "12345",
+                    Balance = -100,
+                    DateOfBirth = DateTime.Parse("01/24/1994"),
+                    RoleId = 2
+                },
+                new User {
+                    UserId = 3,
+                    FirstName = "Natalia",
+                    LastName = "Curusi",
+                    Username = "ncurusi",
+                    Password = "12345",
+                    Balance = 0,
+                    DateOfBirth = DateTime.Parse("08/15/1980"),
+                    RoleId = 1
+                },
+                new User {
+                    UserId = 4,
+                    FirstName = "Sandu",
+                    LastName = "Guzun",
+                    Username = "sguzun",
+                    Password = "12345",
+                    Balance = 75,
+                    DateOfBirth = DateTime.Parse("10/25/1992"),
+                    RoleId = 1
+                },
+                new User {
+                    UserId = 5,
+                    FirstName = "Alexandru",
+                    LastName = "Diacov",
+                    Username = "adiacov",
+                    Password = "12345",
+                    Balance = 0,
+                    DateOfBirth = DateTime.Parse("10/14/1993"),
+                    RoleId = 1
+                },
+            };
+        }
+
+        private static List<Payment> GetPayments()
+        {
+            return new List<Payment>
+            {
+                new Payment {
+                    UserId = 1,
+                    Amount = 70,
+                    Date = DateTime.Now,
+                    Message = "For Natalia",
+                },
+                new Payment {
+                    UserId = 1,
+                    Amount = 70,
+                    Date = DateTime.Now,
+                    Message = "For Serghei",
+                },
+                new Payment {
+                    UserId = 1,
+                    Amount = 100,
+                    Date = DateTime.Now,
+                    Message = "For next birthdays",
+                },
+                new Payment {
+                    UserId = 2,
+                    Amount = 70,
+                    Date = DateTime.Now,
+                    Message = "For Natalia",
+                },
+                new Payment {
+                    UserId = 2,
+                    Amount = 100,
+                    Date = DateTime.Now,
+                    Message = "For Vlad",
+                },
+                new Payment {
+                    UserId = 3,
+                    Amount = 50,
+                    Date = DateTime.Now,
+                    Message = "For Vlad",
+                },
+                new Payment {
+                    UserId = 4,
+                    Amount = 70,
+                    Date = DateTime.Now,
+                    Message = "For Natalia",
+                },
+                new Payment {
+                    UserId = 4,
+                    Amount = 200,
+                    Date = DateTime.Now,
+                    Message = "For next bitrhtdays",
+                },
+                new Payment {
+                    UserId = 5,
+                    Amount = 70,
+                    Date = DateTime.Now,
+                    Message = "For Natalia",
+                },
+            };
+        }
+
+        private static List<Gift> GetGifts()
+        {
+            return new List<Gift>
+            {
+                new Gift {
+                    GiftId = 1,
+                    Price = 1000,
+                    Name = "Books"
+                },
+                new Gift {
+                    GiftId = 2,
+                    Price = 2000,
+                    Name = "Wathces"
+                },
+                new Gift {
+                    GiftId = 3,
+                    Price = 1500,
+                    Name = "Tattoo sertificate"
+                },
+                new Gift {
+                    GiftId = 4,
+                    Price = 700,
+                    Name = "Alcohol"
+                }
+            };
+        }
+
+        private static List<BirthdayArrangement> GetBirthdayArrangements()
+        {
+            var users = context.Users;
+
+            return new List<BirthdayArrangement>
+            {
+                new BirthdayArrangement
+                {
+                    BirthdayManId = 3,
+                    IsCompleted = true,
+                    Date = DateTime.Parse("08/15/2016"),
+                    GiftId = 1,
+                    Сongratulators = new List<User>() {
+                        users.FirstOrDefault(x => x.UserId == 1),
+                        users.FirstOrDefault(x => x.UserId == 2),
+                        users.FirstOrDefault(x => x.UserId == 4),
+                        users.FirstOrDefault(x => x.UserId == 5)
+                    }
+                },
+                new BirthdayArrangement
+                {
+                    BirthdayManId = 1,
+                    IsCompleted = true,
+                    Date = DateTime.Parse("08/04/2016"),
+                    GiftId = 4,
+                    Сongratulators = new List<User>() {
+                        users.FirstOrDefault(x => x.UserId == 2),
+                        users.FirstOrDefault(x => x.UserId == 3),
+                        users.FirstOrDefault(x => x.UserId == 4)
+                    }
+                },
+                new BirthdayArrangement
+                {
+                    BirthdayManId = 4,
+                    IsCompleted = false,
+                    Date = DateTime.Parse("10/25/2016"),
+                    GiftId = 2,
+                    Сongratulators = new List<User>() { }
+                },
+                 new BirthdayArrangement
+                {
+                    BirthdayManId = 5,
+                    IsCompleted = false,
+                    Date = DateTime.Parse("10/14/2016"),
+                    GiftId = 3,
+                    Сongratulators = new List<User>() {
+                        users.FirstOrDefault(x => x.UserId == 1),
+                        users.FirstOrDefault(x => x.UserId == 2)
+                    }
+                },
+            };
         }
 
         private static List<Category> GetCategories()

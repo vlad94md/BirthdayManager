@@ -1,9 +1,5 @@
-﻿using System;
+﻿using BM.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BM.Model;
 
 namespace BM.Service
 {

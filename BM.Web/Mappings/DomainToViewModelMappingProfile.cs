@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AutoMapper;
+﻿using AutoMapper;
 using BM.Model;
+using BM.Model.Models;
 using BM.Web.ViewModels;
 
 namespace BM.Web.Mappings
@@ -19,6 +16,7 @@ namespace BM.Web.Mappings
         {
             CreateMap<Category, CategoryViewModel>();
             CreateMap<Gadget, GadgetViewModel>();
+            CreateMap<User, UserViewModel>();
         }
     }
 }
