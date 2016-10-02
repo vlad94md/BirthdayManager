@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace BM.Data
 {
-    public class BirthdaysSeedData : DropCreateDatabaseIfModelChanges<BirthdaysEntities>
+    public class BirthdaysSeedData : DropCreateDatabaseAlways<BirthdaysEntities>
     {
         private static BirthdaysEntities context;
 
@@ -55,7 +55,8 @@ namespace BM.Data
                     Username = "vguleaev",
                     Password = "12345",
                     Balance = 100,
-                    DateOfBirth = DateTime.Parse("04/08/1994"),
+                    DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                                    System.Globalization.CultureInfo.InvariantCulture),
                     RoleId = 2
                 },
                 new User {
@@ -65,7 +66,8 @@ namespace BM.Data
                     Username = "stibulschii",
                     Password = "12345",
                     Balance = -100,
-                    DateOfBirth = DateTime.Parse("01/24/1994"),
+                    DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                                    System.Globalization.CultureInfo.InvariantCulture),
                     RoleId = 2
                 },
                 new User {
@@ -75,7 +77,8 @@ namespace BM.Data
                     Username = "ncurusi",
                     Password = "12345",
                     Balance = 0,
-                    DateOfBirth = DateTime.Parse("08/15/1980"),
+                    DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                                    System.Globalization.CultureInfo.InvariantCulture),
                     RoleId = 1
                 },
                 new User {
@@ -85,7 +88,8 @@ namespace BM.Data
                     Username = "sguzun",
                     Password = "12345",
                     Balance = 75,
-                    DateOfBirth = DateTime.Parse("10/25/1992"),
+                    DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                                    System.Globalization.CultureInfo.InvariantCulture),
                     RoleId = 1
                 },
                 new User {
@@ -95,7 +99,8 @@ namespace BM.Data
                     Username = "adiacov",
                     Password = "12345",
                     Balance = 0,
-                    DateOfBirth = DateTime.Parse("10/14/1993"),
+                    DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                                    System.Globalization.CultureInfo.InvariantCulture),
                     RoleId = 1
                 },
             };
@@ -191,6 +196,14 @@ namespace BM.Data
 
         private static List<BirthdayArrangement> GetBirthdayArrangements()
         {
+            DateTime dt = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                    System.Globalization.CultureInfo.InvariantCulture);
+
+            var str = dt.ToString("MM-dd-yyyy");
+
+            dt = DateTime.ParseExact(str, "MM-dd-yyyy",
+                System.Globalization.CultureInfo.InvariantCulture);
+
             var users = context.Users;
 
             return new List<BirthdayArrangement>
@@ -199,7 +212,7 @@ namespace BM.Data
                 {
                     BirthdayManId = 3,
                     IsCompleted = true,
-                    Date = DateTime.Parse("08/15/2016"),
+                    Date = dt,
                     GiftId = 1,
                     Сongratulators = new List<User>() {
                         users.FirstOrDefault(x => x.UserId == 1),
@@ -212,7 +225,7 @@ namespace BM.Data
                 {
                     BirthdayManId = 1,
                     IsCompleted = true,
-                    Date = DateTime.Parse("08/04/2016"),
+                    Date = dt,
                     GiftId = 4,
                     Сongratulators = new List<User>() {
                         users.FirstOrDefault(x => x.UserId == 2),
@@ -224,7 +237,7 @@ namespace BM.Data
                 {
                     BirthdayManId = 4,
                     IsCompleted = false,
-                    Date = DateTime.Parse("10/25/2016"),
+                    Date = dt,
                     GiftId = 2,
                     Сongratulators = new List<User>() { }
                 },
@@ -232,7 +245,7 @@ namespace BM.Data
                 {
                     BirthdayManId = 5,
                     IsCompleted = false,
-                    Date = DateTime.Parse("10/14/2016"),
+                    Date = dt,
                     GiftId = 3,
                     Сongratulators = new List<User>() {
                         users.FirstOrDefault(x => x.UserId == 1),

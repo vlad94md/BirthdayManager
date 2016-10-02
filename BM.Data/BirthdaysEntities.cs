@@ -9,8 +9,8 @@ namespace BM.Data
     {
         public BirthdaysEntities() : base("BMEntities")
         {
-            Database.SetInitializer(new BirthdaysSeedData());
-            Database.Initialize(true);
+            //Database.SetInitializer(new BirthdaysSeedData());
+            //Database.Initialize(true);
         }
 
         public DbSet<Gadget> Gadgets { get; set; }

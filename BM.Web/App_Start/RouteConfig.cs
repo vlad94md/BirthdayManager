@@ -14,6 +14,12 @@ namespace BM.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "CatchAll",
+                url: "{*catchall}",
+                defaults: new { controller = "Home", action = "Index"}
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
