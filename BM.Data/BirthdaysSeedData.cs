@@ -29,79 +29,77 @@ namespace BM.Data
             context.Commit();
         }
 
-        private static List<Role> GetRoles()
+        private static List<AppRole> GetRoles()
         {
-            return new List<Role>
+            return new List<AppRole>
             {
-                new Role {
-                    RoleId = 1,
+                new AppRole {
                     Name = "user"
                 },
-                new Role {
-                    RoleId = 2,
+                new AppRole {
                     Name = "admin"
                 }
             };
         }
 
-        private static List<User> GetUsers()
+        private static List<AppUser> GetUsers()
         {
-            return new List<User>
+            return new List<AppUser>
             {
-                new User {
-                    UserId = 1,
+                new AppUser {
+                    AdditionalId = 1,
                     FirstName = "Vladislav",
                     LastName = "Guleaev",
-                    Username = "vguleaev",
+                    OldUsername = "vguleaev",
                     Password = "12345",
                     Balance = 100,
                     DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
-                    RoleId = 2
+                    //RoleId = 2
                 },
-                new User {
-                    UserId = 2,
+                new AppUser {
+                    AdditionalId = 2,
                     FirstName = "Serghei",
                     LastName = "Tibulschii",
-                    Username = "stibulschii",
+                    OldUsername = "stibulschii",
                     Password = "12345",
                     Balance = -100,
                     DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
-                    RoleId = 2
+                    //RoleId = 2
                 },
-                new User {
-                    UserId = 3,
+                new AppUser {
+                    AdditionalId = 3,
                     FirstName = "Natalia",
                     LastName = "Curusi",
-                    Username = "ncurusi",
+                    OldUsername = "ncurusi",
                     Password = "12345",
                     Balance = 0,
                     DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
-                    RoleId = 1
+                    //RoleId = 1
                 },
-                new User {
-                    UserId = 4,
+                new AppUser {
+                    AdditionalId = 4,
                     FirstName = "Sandu",
                     LastName = "Guzun",
-                    Username = "sguzun",
+                    OldUsername = "sguzun",
                     Password = "12345",
                     Balance = 75,
                     DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
-                    RoleId = 1
+                    //RoleId = 1
                 },
-                new User {
-                    UserId = 5,
+                new AppUser {
+                    AdditionalId = 5,
                     FirstName = "Alexandru",
                     LastName = "Diacov",
-                    Username = "adiacov",
+                    OldUsername = "adiacov",
                     Password = "12345",
                     Balance = 0,
                     DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
-                    RoleId = 1
+                    //RoleId = 1
                 },
             };
         }
@@ -214,11 +212,11 @@ namespace BM.Data
                     IsCompleted = true,
                     Date = dt,
                     GiftId = 1,
-                    Сongratulators = new List<User>() {
-                        users.FirstOrDefault(x => x.UserId == 1),
-                        users.FirstOrDefault(x => x.UserId == 2),
-                        users.FirstOrDefault(x => x.UserId == 4),
-                        users.FirstOrDefault(x => x.UserId == 5)
+                    Сongratulators = new List<AppUser>() {
+                        users.FirstOrDefault(x => x.AdditionalId == 1),
+                        users.FirstOrDefault(x => x.AdditionalId == 2),
+                        users.FirstOrDefault(x => x.AdditionalId == 4),
+                        users.FirstOrDefault(x => x.AdditionalId == 5)
                     }
                 },
                 new BirthdayArrangement
@@ -227,10 +225,10 @@ namespace BM.Data
                     IsCompleted = true,
                     Date = dt,
                     GiftId = 4,
-                    Сongratulators = new List<User>() {
-                        users.FirstOrDefault(x => x.UserId == 2),
-                        users.FirstOrDefault(x => x.UserId == 3),
-                        users.FirstOrDefault(x => x.UserId == 4)
+                    Сongratulators = new List<AppUser>() {
+                        users.FirstOrDefault(x => x.AdditionalId == 2),
+                        users.FirstOrDefault(x => x.AdditionalId == 3),
+                        users.FirstOrDefault(x => x.AdditionalId == 4)
                     }
                 },
                 new BirthdayArrangement
@@ -239,7 +237,7 @@ namespace BM.Data
                     IsCompleted = false,
                     Date = dt,
                     GiftId = 2,
-                    Сongratulators = new List<User>() { }
+                    Сongratulators = new List<AppUser>() { }
                 },
                  new BirthdayArrangement
                 {
@@ -247,9 +245,9 @@ namespace BM.Data
                     IsCompleted = false,
                     Date = dt,
                     GiftId = 3,
-                    Сongratulators = new List<User>() {
-                        users.FirstOrDefault(x => x.UserId == 1),
-                        users.FirstOrDefault(x => x.UserId == 2)
+                    Сongratulators = new List<AppUser>() {
+                        users.FirstOrDefault(x => x.AdditionalId == 1),
+                        users.FirstOrDefault(x => x.AdditionalId == 2)
                     }
                 },
             };

@@ -13,8 +13,8 @@ namespace BM.Model.Models
         public Gift Gift { get; set; }
 
         public int BirthdayManId { get; set; }
-        public User BirthdayMan { get; set; }
+        public AppUser BirthdayMan { get; set; }
 
-        public virtual ICollection<User> Сongratulators { get; set; }
+        public virtual ICollection<AppUser> Сongratulators { get; set; }
     }
 }

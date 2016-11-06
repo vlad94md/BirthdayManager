@@ -10,6 +10,6 @@ namespace BM.Model.Models
         public decimal Amount { get; set; }
 
         public int UserId { get; set; }
-        public User User { get; set; }
+        public AppUser User { get; set; }
     }
 }

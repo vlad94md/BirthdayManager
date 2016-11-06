@@ -19,19 +19,19 @@ namespace BM.Service
 
         #region IGadgetService Members
 
-        public IEnumerable<User> GetUsers()
+        public IEnumerable<AppUser> GetUsers()
         {
             var users = userRepository.GetAll();
             return users;
         }
 
-        public User GetUser(int id)
+        public AppUser GetUser(int id)
         {
             var user = userRepository.GetById(id);
             return user;
         }
 
-        public void CreateUser(User user)
+        public void CreateUser(AppUser user)
         {
             userRepository.Add(user);
         }

@@ -5,9 +5,9 @@ namespace BM.Service
 {
     public interface IUserService
     {
-        IEnumerable<User> GetUsers();
-        User GetUser(int id);
-        void CreateUser(User user);
+        IEnumerable<AppUser> GetUsers();
+        AppUser GetUser(int id);
+        void CreateUser(AppUser user);
         void SaveUser();
     }
 }

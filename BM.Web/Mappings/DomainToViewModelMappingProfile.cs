@@ -16,7 +16,7 @@ namespace BM.Web.Mappings
         {
             CreateMap<Category, CategoryViewModel>();
             CreateMap<Gadget, GadgetViewModel>();
-            CreateMap<User, UserViewModel>();
+            CreateMap<AppUser, UserViewModel>();
         }
     }
 }

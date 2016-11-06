@@ -3,7 +3,7 @@ using BM.Model.Models;
 
 namespace BM.Data.Repositories
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IUserRepository : IRepository<AppUser>
     {
 
     }

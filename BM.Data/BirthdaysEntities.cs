@@ -2,10 +2,11 @@
 using BM.Model;
 using BM.Model.Models;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace BM.Data
 {
-    public class BirthdaysEntities : DbContext
+    public class BirthdaysEntities : IdentityDbContext<AppUser>
     {
         public BirthdaysEntities() : base("BMEntities")
         {
@@ -15,8 +16,8 @@ namespace BM.Data
 
         public DbSet<Gadget> Gadgets { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
+        //public DbSet<AppUser> Users { get; set; }
+        //public DbSet<AppRole> Roles { get; set; }
         public DbSet<BirthdayArrangement> BirthdayArrangements { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Gift> Gifts { get; set; }
@@ -32,7 +33,7 @@ namespace BM.Data
             modelBuilder.Configurations.Add(new CategoryConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<AppUser>()
                 .HasMany(t => t.BirthdaySubscriptions)
                 .WithMany(t => t.Сongratulators);
 
@@ -40,14 +41,15 @@ namespace BM.Data
                 .HasMany(t => t.Сongratulators)
                 .WithMany(t => t.BirthdaySubscriptions);
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Birthdays)
-                .WithRequired(b => b.BirthdayMan)
-                .HasForeignKey(s => s.BirthdayManId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<AppUser>()
+            //    .HasMany(u => u.Birthdays)
+            //    .WithRequired(b => b.BirthdayMan)
+            //    .HasForeignKey(s => s.BirthdayManId)
+            //    .WillCascadeOnDelete(false);
+            modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
+            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
 
-            //modelBuilder.Entity<BirthdayArrangement>()
-            //    .HasRequired(e => e.BirthdayMan);
         }
     }
 }

@@ -21,9 +21,9 @@ namespace BM.Web.Controllers.Api
         [HttpGet]
         public IEnumerable<UserViewModel> GetAll()
         {
-            IEnumerable<User> users = userService.GetUsers().ToList();
+            IEnumerable<AppUser> users = userService.GetUsers().ToList();
 
-            var usersModels = Mapper.Map<IEnumerable<User>, IEnumerable<UserViewModel>>(users);
+            var usersModels = Mapper.Map<IEnumerable<AppUser>, IEnumerable<UserViewModel>>(users);
             return usersModels;
         }
     }

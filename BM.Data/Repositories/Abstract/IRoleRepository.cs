@@ -3,7 +3,7 @@ using BM.Model.Models;
 
 namespace BM.Data.Repositories
 {
-    public interface IRoleRepository : IRepository<Role>
+    public interface IRoleRepository : IRepository<AppRole>
     {
 
     }
