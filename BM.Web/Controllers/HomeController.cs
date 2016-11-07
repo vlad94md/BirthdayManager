@@ -4,13 +4,7 @@ using BM.Service;
 using BM.Web.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using BM.Model.Models;
-using BM.Web.App_Start;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 
 namespace BM.Web.Controllers
 {
@@ -28,15 +22,43 @@ namespace BM.Web.Controllers
             this.userService = userService;
         }
 
-        // GET: Home
         public ActionResult Index(string category = null)
         {
             IEnumerable<CategoryViewModel> viewModelGadgets;
             IEnumerable<Category> categories;
 
             categories = categoryService.GetCategories(category).ToList();
-            IEnumerable<AppUser> users = userService.GetUsers().ToList();
 
+            //try
+            //{
+            //    var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+
+            //    var user = new AppUser
+            //    {
+            //        UserName = "franko",
+            //        OldUsername = "frankoold",
+            //        FirstName = "Frank",
+            //        LastName = "Ouimette",
+            //        Email = "franko@emailservice.com",
+            //        DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+            //                        System.Globalization.CultureInfo.InvariantCulture)
+            //    };
+
+            //    var result = userManager.Create(user, "Temp_123");
+
+            //    if (result.Succeeded)
+            //    {
+            //        result = userManager.AddToRole(user.Id, "User");
+
+            //        // User added successfully, you can safely use the Id now.
+            //        var id = user.Id;
+
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e);
+            //}
 
             viewModelGadgets = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(categories);
             return View(viewModelGadgets);

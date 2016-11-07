@@ -1,5 +1,6 @@
 ﻿using BM.Data;
 using BM.Model.Models;
+using BM.Web.App_Start;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -14,7 +15,7 @@ namespace BM.Web
         public void Configuration(IAppBuilder app)
         {
             app.CreatePerOwinContext(() => new BirthdaysEntities());
-            //app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
+            app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
             app.CreatePerOwinContext<RoleManager<AppRole>>((options, context) =>
                 new RoleManager<AppRole>(
                     new RoleStore<AppRole>(context.Get<BirthdaysEntities>())));
@@ -22,7 +23,7 @@ namespace BM.Web
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Home/Login"),
+                LoginPath = new PathString("/Account/Login"),
             });
         }
     }

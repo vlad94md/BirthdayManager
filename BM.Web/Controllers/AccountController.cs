@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Web;
-using System.Web.Mvc;
-using BM.Model.Models;
+﻿using BM.Model.Models;
 using BM.Service;
 using BM.Web.App_Start;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace BM.Web.Controllers
 {
-    [AllowAnonymous]
     public class AccountController : Controller
     {
         private IUserService userService;
@@ -22,8 +18,7 @@ namespace BM.Web.Controllers
         {
             this.userService = userService;
         }
-
-
+        
         public ActionResult Login()
         {
             return View();

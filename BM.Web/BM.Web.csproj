@@ -2175,6 +2175,7 @@
     <Content Include="WorkFiles\Src\components\mobilesPage\mobilePage.jsx" />
     <Content Include="WorkFiles\Src\components\tabletsPage\tabletPage.jsx" />
     <Content Include="WorkFiles\Src\components\usersPage\userPage.jsx" />
+    <Content Include="WorkFiles\Src\components\loginPage\loginPage.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

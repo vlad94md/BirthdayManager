@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using BM.Data;
 using BM.Model.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -18,16 +15,16 @@ namespace BM.Web.App_Start
         }
 
         // this method is called by Owin therefore best place to configure your User Manager
-        //public static AppUserManager Create(
-        //    IdentityFactoryOptions<AppUserManager> options, IOwinContext context)
-        //{
-        //    var manager = new AppUserManager(
-        //        new UserStore<AppUser>(context.Get<MyDbContext>()));
+        public static AppUserManager Create(
+            IdentityFactoryOptions<AppUserManager> options, IOwinContext context)
+        {
+            var manager = new AppUserManager(
+                new UserStore<AppUser>(context.Get<BirthdaysEntities>()));
 
-        //    // optionally configure your manager
-        //    // ...
+            // optionally configure your manager
+            // ...
 
-        //    return manager;
-        //}
+            return manager;
+        }
     }
 }
