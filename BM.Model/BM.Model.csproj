@@ -58,8 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\BirthdayArrangement.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Gadget.cs" />
     <Compile Include="Models\Gift.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\AppRole.cs" />

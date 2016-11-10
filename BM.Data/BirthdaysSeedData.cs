@@ -15,8 +15,8 @@ namespace BM.Data
         {
             context = _context;
 
-            GetCategories().ForEach(c => context.Categories.Add(c));
-            GetGadgets().ForEach(g => context.Gadgets.Add(g));
+            if(context.Users.Any())
+                return;
 
             GetRoles().ForEach(c => context.Roles.Add(c));
             GetUsers().ForEach(g => context.Users.Add(g));
@@ -44,120 +44,115 @@ namespace BM.Data
 
         private static List<AppUser> GetUsers()
         {
+            var currentDate = DateTime.Now;
+            var thisMonth = currentDate.Month;
+
             return new List<AppUser>
             {
                 new AppUser {
-                    AdditionalId = 1,
                     FirstName = "Vladislav",
                     LastName = "Guleaev",
-                    OldUsername = "vguleaev",
+                    UserName= "vguleaev",
                     Password = "12345",
                     Balance = 100,
-                    DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                    DateOfBirth = DateTime.ParseExact("1994.01." + thisMonth, "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
-                    //RoleId = 2
                 },
                 new AppUser {
-                    AdditionalId = 2,
                     FirstName = "Serghei",
                     LastName = "Tibulschii",
-                    OldUsername = "stibulschii",
+                    UserName = "stibulschii",
                     Password = "12345",
                     Balance = -100,
-                    DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                    DateOfBirth = DateTime.ParseExact("1994.05." + thisMonth, "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
-                    //RoleId = 2
                 },
                 new AppUser {
-                    AdditionalId = 3,
                     FirstName = "Natalia",
                     LastName = "Curusi",
-                    OldUsername = "ncurusi",
+                    UserName = "ncurusi",
                     Password = "12345",
                     Balance = 0,
-                    DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                    DateOfBirth = DateTime.ParseExact("1980.15." + thisMonth, "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
-                    //RoleId = 1
                 },
                 new AppUser {
-                    AdditionalId = 4,
                     FirstName = "Sandu",
                     LastName = "Guzun",
-                    OldUsername = "sguzun",
+                    UserName = "sguzun",
                     Password = "12345",
                     Balance = 75,
-                    DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                    DateOfBirth = DateTime.ParseExact("1992.20." + thisMonth, "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
-                    //RoleId = 1
                 },
                 new AppUser {
-                    AdditionalId = 5,
                     FirstName = "Alexandru",
                     LastName = "Diacov",
-                    OldUsername = "adiacov",
+                    UserName = "adiacov",
                     Password = "12345",
                     Balance = 0,
-                    DateOfBirth = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
+                    DateOfBirth = DateTime.ParseExact("1993.25." + thisMonth, "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
-                    //RoleId = 1
                 },
             };
         }
 
         private static List<Payment> GetPayments()
         {
+            var users = context.Users.ToList();
+
             return new List<Payment>
             {
                 new Payment {
-                    UserId = 1,
+                    UserId = users[0].Id,
                     Amount = 70,
                     Date = DateTime.Now,
                     Message = "For Natalia",
                 },
                 new Payment {
-                    UserId = 1,
+                    UserId = users[0].Id,
                     Amount = 70,
                     Date = DateTime.Now,
                     Message = "For Serghei",
                 },
                 new Payment {
-                    UserId = 1,
+                    UserId = users[0].Id,
                     Amount = 100,
                     Date = DateTime.Now,
                     Message = "For next birthdays",
                 },
                 new Payment {
-                    UserId = 2,
+                    UserId = users[1].Id,
                     Amount = 70,
                     Date = DateTime.Now,
                     Message = "For Natalia",
                 },
                 new Payment {
-                    UserId = 2,
+                    UserId = users[1].Id,
                     Amount = 100,
                     Date = DateTime.Now,
                     Message = "For Vlad",
                 },
                 new Payment {
-                    UserId = 3,
+                    UserId = users[2].Id,
                     Amount = 50,
                     Date = DateTime.Now,
                     Message = "For Vlad",
                 },
                 new Payment {
-                    UserId = 4,
+                    UserId = users[3].Id,
                     Amount = 70,
                     Date = DateTime.Now,
                     Message = "For Natalia",
                 },
                 new Payment {
-                    UserId = 4,
+                    UserId = users[3].Id,
                     Amount = 200,
                     Date = DateTime.Now,
                     Message = "For next bitrhtdays",
                 },
                 new Payment {
-                    UserId = 5,
+                    UserId = users[4].Id,
                     Amount = 70,
                     Date = DateTime.Now,
                     Message = "For Natalia",
@@ -170,22 +165,22 @@ namespace BM.Data
             return new List<Gift>
             {
                 new Gift {
-                    GiftId = 1,
+                    Id = 1,
                     Price = 1000,
                     Name = "Books"
                 },
                 new Gift {
-                    GiftId = 2,
+                    Id = 2,
                     Price = 2000,
                     Name = "Wathces"
                 },
                 new Gift {
-                    GiftId = 3,
+                    Id = 3,
                     Price = 1500,
                     Name = "Tattoo sertificate"
                 },
                 new Gift {
-                    GiftId = 4,
+                    Id = 4,
                     Price = 700,
                     Name = "Alcohol"
                 }
@@ -194,128 +189,50 @@ namespace BM.Data
 
         private static List<BirthdayArrangement> GetBirthdayArrangements()
         {
-            DateTime dt = DateTime.ParseExact("2015.05.05", "yyyy.dd.MM",
-                    System.Globalization.CultureInfo.InvariantCulture);
-
-            var str = dt.ToString("MM-dd-yyyy");
-
-            dt = DateTime.ParseExact(str, "MM-dd-yyyy",
-                System.Globalization.CultureInfo.InvariantCulture);
-
-            var users = context.Users;
+            var users = context.Users.ToList();
 
             return new List<BirthdayArrangement>
             {
                 new BirthdayArrangement
                 {
-                    BirthdayManId = 3,
+                    BirthdayMan = users.FirstOrDefault(x => x.UserName == "ncurusi"),
                     IsCompleted = true,
-                    Date = dt,
                     GiftId = 1,
                     Сongratulators = new List<AppUser>() {
-                        users.FirstOrDefault(x => x.AdditionalId == 1),
-                        users.FirstOrDefault(x => x.AdditionalId == 2),
-                        users.FirstOrDefault(x => x.AdditionalId == 4),
-                        users.FirstOrDefault(x => x.AdditionalId == 5)
+                        users.FirstOrDefault(x => x.UserName == "vguleaev"),
+                        users.FirstOrDefault(x => x.UserName == "stibulschii"),
+                        users.FirstOrDefault(x => x.UserName == "sguzun"),
+                        users.FirstOrDefault(x => x.UserName == "adiacov")
                     }
                 },
                 new BirthdayArrangement
                 {
-                    BirthdayManId = 1,
+                    BirthdayMan = users.FirstOrDefault(x => x.UserName == "vguleaev"),
                     IsCompleted = true,
-                    Date = dt,
                     GiftId = 4,
                     Сongratulators = new List<AppUser>() {
-                        users.FirstOrDefault(x => x.AdditionalId == 2),
-                        users.FirstOrDefault(x => x.AdditionalId == 3),
-                        users.FirstOrDefault(x => x.AdditionalId == 4)
+                        users.FirstOrDefault(x => x.UserName == "stibulschii"),
+                        users.FirstOrDefault(x => x.UserName == "ncurusi"),
+                        users.FirstOrDefault(x => x.UserName == "sguzun")
                     }
                 },
                 new BirthdayArrangement
                 {
-                    BirthdayManId = 4,
+                    BirthdayMan = users.FirstOrDefault(x => x.UserName == "sguzun"),
                     IsCompleted = false,
-                    Date = dt,
                     GiftId = 2,
                     Сongratulators = new List<AppUser>() { }
                 },
                  new BirthdayArrangement
                 {
-                    BirthdayManId = 5,
+                    BirthdayMan = users.FirstOrDefault(x => x.UserName == "adiacov"),
                     IsCompleted = false,
-                    Date = dt,
                     GiftId = 3,
                     Сongratulators = new List<AppUser>() {
-                        users.FirstOrDefault(x => x.AdditionalId == 1),
-                        users.FirstOrDefault(x => x.AdditionalId == 2)
+                        users.FirstOrDefault(x => x.UserName == "vguleaev"),
+                        users.FirstOrDefault(x => x.UserName == "stibulschii")
                     }
                 },
-            };
-        }
-
-        private static List<Category> GetCategories()
-        {
-            return new List<Category>
-            {
-                new Category {
-                    Name = "Tablets"
-                },
-                new Category {
-                    Name = "Laptops"
-                },
-                new Category {
-                    Name = "Mobiles"
-                }
-            };
-        }
-
-        private static List<Gadget> GetGadgets()
-        {
-            return new List<Gadget>
-            {
-                new Gadget {
-                    Name = "ProntoTec 7",
-                    Description = "Android 4.4 KitKat Tablet PC, Cortex A8 1.2 GHz Dual Core Processor,512MB / 4GB,Dual Camera,G-Sensor (Black)",
-                    CategoryID = 1,
-                    Price = 46.99m,
-                    Image = "prontotec.jpg"
-                },
-                new Gadget {
-                    Name = "Samsung Galaxy",
-                    Description = "Android 4.4 Kit Kat OS, 1.2 GHz quad-core processor",
-                    CategoryID = 1,
-                    Price = 120.95m,
-                    Image= "samsung-galaxy.jpg"
-                },
-                new Gadget {
-                    Name = "NeuTab® N7 Pro 7",
-                    Description = "NeuTab N7 Pro tablet features the amazing powerful, Quad Core processor performs approximately Double multitasking running speed, and is more reliable than ever",
-                    CategoryID = 1,
-                    Price = 59.99m,
-                    Image= "neutab.jpg"
-                },
-                new Gadget {
-                    Name = "Dragon Touch® Y88X 7",
-                    Description = "Dragon Touch Y88X tablet featuring the incredible powerful Allwinner Quad Core A33, up to four times faster CPU, ensures faster multitasking speed than ever. With the super-portable size, you get a robust power in a device that can be taken everywhere",
-                    CategoryID = 1,
-                    Price = 54.99m,
-                    Image= "dragon-touch.jpg"
-                },
-                new Gadget {
-                    Name = "Alldaymall A88X 7",
-                    Description = "This Alldaymall tablet featuring the incredible powerful Allwinner Quad Core A33, up to four times faster CPU, ensures faster multitasking speed than ever. With the super-portable size, you get a robust power in a device that can be taken everywhere",
-                    CategoryID = 1,
-                    Price = 47.99m,
-                    Image= "Alldaymall.jpg"
-                },
-                new Gadget {
-                    Name = "ASUS MeMO",
-                    Description = "Pad 7 ME170CX-A1-BK 7-Inch 16GB Tablet. Dual-Core Intel Atom Z2520 1.2GHz CPU",
-                    CategoryID = 1,
-                    Price = 94.99m,
-                    Image= "asus-memo.jpg"
-                },
-                // Code ommitted 
             };
         }
     }

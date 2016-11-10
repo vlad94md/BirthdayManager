@@ -9,8 +9,8 @@ namespace BM.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "BM.Data.BirthdaysEntities";
+            AutomaticMigrationsEnabled = true;
+            //ContextKey = "BM.Data.BirthdaysEntities";
         }
 
         protected override void Seed(BM.Data.BirthdaysEntities context)

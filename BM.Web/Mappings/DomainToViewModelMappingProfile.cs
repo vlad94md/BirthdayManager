@@ -14,8 +14,8 @@ namespace BM.Web.Mappings
 
         protected override void Configure()
         {
-            CreateMap<Category, CategoryViewModel>();
-            CreateMap<Gadget, GadgetViewModel>();
+            //CreateMap<Category, CategoryViewModel>();
+            //CreateMap<Gadget, GadgetViewModel>();
             CreateMap<AppUser, UserViewModel>();
         }
     }

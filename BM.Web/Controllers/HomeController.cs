@@ -11,23 +11,21 @@ namespace BM.Web.Controllers
 
     public class HomeController : Controller
     {
-        private readonly ICategoryService categoryService;
-        private readonly IGadgetService gadgetService;
+        //private readonly ICategoryService categoryService;
+        //private readonly IGadgetService gadgetService;
         private readonly IUserService userService;
 
-        public HomeController(ICategoryService categoryService, IGadgetService gadgetService, IUserService userService)
+        public HomeController(IUserService userService)
         {
-            this.categoryService = categoryService;
-            this.gadgetService = gadgetService;
             this.userService = userService;
         }
 
         public ActionResult Index(string category = null)
         {
             IEnumerable<CategoryViewModel> viewModelGadgets;
-            IEnumerable<Category> categories;
+            //IEnumerable<Category> categories;
 
-            categories = categoryService.GetCategories(category).ToList();
+            //categories = categoryService.GetCategories(category).ToList();
 
             //try
             //{
@@ -60,39 +58,39 @@ namespace BM.Web.Controllers
             //    Console.WriteLine(e);
             //}
 
-            viewModelGadgets = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(categories);
-            return View(viewModelGadgets);
+            //viewModelGadgets = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(categories);
+            return View();
         }
 
-        public ActionResult Filter(string category, string gadgetName)
-        {
-            IEnumerable<GadgetViewModel> viewModelGadgets;
-            IEnumerable<Gadget> gadgets;
+        //public ActionResult Filter(string category, string gadgetName)
+        //{
+        //    IEnumerable<GadgetViewModel> viewModelGadgets;
+        //    IEnumerable<Gadget> gadgets;
 
-            gadgets = gadgetService.GetCategoryGadgets(category, gadgetName);
+        //    gadgets = gadgetService.GetCategoryGadgets(category, gadgetName);
 
-            viewModelGadgets = Mapper.Map<IEnumerable<Gadget>, IEnumerable<GadgetViewModel>>(gadgets);
+        //    viewModelGadgets = Mapper.Map<IEnumerable<Gadget>, IEnumerable<GadgetViewModel>>(gadgets);
 
-            return View(viewModelGadgets);
-        }
+        //    return View(viewModelGadgets);
+        //}
 
-        [HttpPost]
-        public ActionResult Create(GadgetFormViewModel newGadget)
-        {
-            if (newGadget != null && newGadget.File != null)
-            {
-                var gadget = Mapper.Map<GadgetFormViewModel, Gadget>(newGadget);
-                gadgetService.CreateGadget(gadget);
+        //[HttpPost]
+        //public ActionResult Create(GadgetFormViewModel newGadget)
+        //{
+        //    if (newGadget != null && newGadget.File != null)
+        //    {
+        //        var gadget = Mapper.Map<GadgetFormViewModel, Gadget>(newGadget);
+        //        gadgetService.CreateGadget(gadget);
 
-                string gadgetPicture = System.IO.Path.GetFileName(newGadget.File.FileName);
-                string path = System.IO.Path.Combine(Server.MapPath("~/Content/images/"), gadgetPicture);
-                newGadget.File.SaveAs(path);
+        //        string gadgetPicture = System.IO.Path.GetFileName(newGadget.File.FileName);
+        //        string path = System.IO.Path.Combine(Server.MapPath("~/Content/images/"), gadgetPicture);
+        //        newGadget.File.SaveAs(path);
 
-                gadgetService.SaveGadget();
-            }
+        //        gadgetService.SaveGadget();
+        //    }
 
-            var category = categoryService.GetCategory(newGadget.GadgetCategory);
-            return RedirectToAction("Index", new {category = category.Name});
-        }
+        //    var category = categoryService.GetCategory(newGadget.GadgetCategory);
+        //    return RedirectToAction("Index", new { category = category.Name });
+        //}
     }
 }

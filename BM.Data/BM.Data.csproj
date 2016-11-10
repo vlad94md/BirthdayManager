@@ -92,10 +92,6 @@
     <Compile Include="Configuration\CategoryConfiguration.cs" />
     <Compile Include="Configuration\GadgetConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />
-    <Compile Include="Migrations\201611051436085_InitialMigration.cs" />
-    <Compile Include="Migrations\201611051436085_InitialMigration.Designer.cs">
-      <DependentUpon>201611051436085_InitialMigration.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\Abstract\IBirthdayArrangementRepository.cs" />
     <Compile Include="Repositories\Abstract\IGiftRepository.cs" />
@@ -115,8 +111,6 @@
     <Compile Include="Repositories\Concrete\GadgetRepository.cs" />
     <Compile Include="BirthdaysEntities.cs" />
     <Compile Include="BirthdaysSeedData.cs" />
-    <Compile Include="Repositories\Abstract\ICategoryRepository.cs" />
-    <Compile Include="Repositories\Abstract\IGadgetRepository.cs" />
     <Compile Include="Repositories\Concrete\GiftRepository.cs" />
     <Compile Include="Repositories\Concrete\PaymentRepository.cs" />
     <Compile Include="Repositories\Concrete\RoleRepository.cs" />
@@ -131,11 +125,6 @@
       <Project>{04da8a1d-9ba3-416e-b320-89617e3b9cb8}</Project>
       <Name>BM.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611051436085_InitialMigration.resx">
-      <DependentUpon>201611051436085_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

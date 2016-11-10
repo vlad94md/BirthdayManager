@@ -8,12 +8,10 @@ namespace BM.Data.Configuration
         public UserConfiguration()
         {
             ToTable("Users");
-            Property(g => g.OldUsername).IsRequired().HasMaxLength(100);
             Property(g => g.FirstName).IsRequired().HasMaxLength(50);
             Property(g => g.LastName).IsRequired().HasMaxLength(50);
             Property(g => g.Password).HasMaxLength(50).IsOptional();
             Property(g => g.DateOfBirth).IsRequired();
-            //Property(g => g.RoleId).IsRequired();
         }
     }
 }

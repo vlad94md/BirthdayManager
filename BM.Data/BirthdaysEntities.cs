@@ -10,14 +10,10 @@ namespace BM.Data
     {
         public BirthdaysEntities() : base("BMEntities")
         {
-            //Database.SetInitializer(new BirthdaysSeedData());
-            //Database.Initialize(true);
+            Database.SetInitializer(new BirthdaysSeedData());
+            Database.Initialize(true);
         }
 
-        public DbSet<Gadget> Gadgets { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        //public DbSet<AppUser> Users { get; set; }
-        //public DbSet<AppRole> Roles { get; set; }
         public DbSet<BirthdayArrangement> BirthdayArrangements { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Gift> Gifts { get; set; }
@@ -29,27 +25,19 @@ namespace BM.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new GadgetConfiguration());
-            modelBuilder.Configurations.Add(new CategoryConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
 
             modelBuilder.Entity<AppUser>()
-                .HasMany(t => t.BirthdaySubscriptions)
+                .HasMany(t => t.Subscriptions)
                 .WithMany(t => t.Сongratulators);
 
             modelBuilder.Entity<BirthdayArrangement>()
                 .HasMany(t => t.Сongratulators)
-                .WithMany(t => t.BirthdaySubscriptions);
+                .WithMany(t => t.Subscriptions);
 
-            //modelBuilder.Entity<AppUser>()
-            //    .HasMany(u => u.Birthdays)
-            //    .WithRequired(b => b.BirthdayMan)
-            //    .HasForeignKey(s => s.BirthdayManId)
-            //    .WillCascadeOnDelete(false);
             modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
             modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
             modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
-
         }
     }
 }
