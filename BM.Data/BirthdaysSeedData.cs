@@ -1,5 +1,4 @@
-﻿using BM.Model;
-using BM.Model.Models;
+﻿using BM.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +6,7 @@ using System.Linq;
 
 namespace BM.Data
 {
-    public class BirthdaysSeedData : DropCreateDatabaseAlways<BirthdaysEntities>
+    public class BirthdaysSeedData : DropCreateDatabaseIfModelChanges<BirthdaysEntities>
     {
         private static BirthdaysEntities context;
 

@@ -63,6 +63,7 @@
     <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LogInModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

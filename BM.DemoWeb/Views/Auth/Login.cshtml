@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Log In</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.EditorForModel()
+    <p>
+        <button type="submit">Log In</button>
+    </p>
+}
