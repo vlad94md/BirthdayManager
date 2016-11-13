@@ -19,13 +19,13 @@ namespace BM.Data
 
             GetRoles().ForEach(c => context.Roles.Add(c));
             GetUsers().ForEach(g => context.Users.Add(g));
-            context.Commit();
+            context.SaveChanges();
 
             GetPayments().ForEach(g => context.Payments.Add(g));
             GetGifts().ForEach(g => context.Gifts.Add(g));
             GetBirthdayArrangements().ForEach(g => context.BirthdayArrangements.Add(g));
 
-            context.Commit();
+            context.SaveChanges();
         }
 
         private static List<AppRole> GetRoles()

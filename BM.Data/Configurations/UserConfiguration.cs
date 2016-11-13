@@ -12,6 +12,9 @@ namespace BM.Data.Configuration
             Property(g => g.LastName).IsRequired().HasMaxLength(50);
             Property(g => g.Password).HasMaxLength(50).IsOptional();
             Property(g => g.DateOfBirth).IsRequired();
+
+            HasMany(t => t.Subscriptions)
+            .WithMany(t => t.Сongratulators);
         }
     }
 }

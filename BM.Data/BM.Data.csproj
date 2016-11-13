@@ -89,9 +89,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\CategoryConfiguration.cs" />
-    <Compile Include="Configuration\GadgetConfiguration.cs" />
-    <Compile Include="Configuration\UserConfiguration.cs" />
+    <Compile Include="Configurations\BirthdayArrangementConfiguration.cs" />
+    <Compile Include="Configurations\UserConfiguration.cs" />
+    <Compile Include="IBirthdaysEntities.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\Abstract\IBirthdayArrangementRepository.cs" />
     <Compile Include="Repositories\Abstract\IGiftRepository.cs" />
@@ -101,14 +101,9 @@
     <Compile Include="Repositories\Base\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
-    <Compile Include="Infrastructure\DbFactory.cs" />
-    <Compile Include="Infrastructure\Disposable.cs" />
-    <Compile Include="Infrastructure\IDbFactory.cs" />
     <Compile Include="Repositories\Base\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Concrete\BirthdayArrangmenetRepository.cs" />
-    <Compile Include="Repositories\Concrete\CategoryRepository.cs" />
-    <Compile Include="Repositories\Concrete\GadgetRepository.cs" />
+    <Compile Include="Repositories\Concrete\BirthdayArrangementRepository.cs" />
     <Compile Include="BirthdaysEntities.cs" />
     <Compile Include="BirthdaysSeedData.cs" />
     <Compile Include="Repositories\Concrete\GiftRepository.cs" />

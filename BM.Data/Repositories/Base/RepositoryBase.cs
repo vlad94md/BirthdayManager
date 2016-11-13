@@ -3,33 +3,20 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BM.Data.Infrastructure
+namespace BM.Data.Repositories.Base
 {
     public abstract class RepositoryBase<T> where T : class
     {
         #region Properties
-        private BirthdaysEntities dataContext;
+        private readonly IBirthdaysEntities dataContext;
         private readonly IDbSet<T> dbSet;
-
-        protected IDbFactory DbFactory
-        {
-            get;
-            private set;
-        }
-
-        protected BirthdaysEntities DbContext
-        {
-            get { return dataContext ?? (dataContext = DbFactory.Init()); }
-        }
         #endregion
 
-        protected RepositoryBase(IDbFactory dbFactory)
+        protected RepositoryBase(IBirthdaysEntities context)
         {
-            DbFactory = dbFactory;
-            dbSet = DbContext.Set<T>();
+            dataContext = context;
+            dbSet = dataContext.Set<T>();
         }
 
         #region Implementation
@@ -56,11 +43,6 @@ namespace BM.Data.Infrastructure
                 dbSet.Remove(obj);
         }
 
-        public virtual T GetById(int id)
-        {
-            return dbSet.Find(id);
-        }
-
         public virtual IEnumerable<T> GetAll()
         {
             return dbSet.ToList();
@@ -75,8 +57,6 @@ namespace BM.Data.Infrastructure
         {
             return dbSet.Where(where).FirstOrDefault<T>();
         }
-
         #endregion
-
     }
 }

@@ -1,11 +1,12 @@
-using BM.Data.Infrastructure;
+using BM.Data.Repositories.Abstract;
+using BM.Data.Repositories.Base;
 using BM.Model.Models;
 
-namespace BM.Data.Repositories
+namespace BM.Data.Repositories.Concrete
 {
     public class GiftRepository : RepositoryBase<Gift>, IGiftRepository
     {
-        public GiftRepository(IDbFactory dbFactory)
-            : base(dbFactory) { }
+        public GiftRepository(IBirthdaysEntities context)
+            : base(context) { }
     }
 }
