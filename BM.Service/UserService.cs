@@ -2,46 +2,48 @@
 using BM.Data.Repositories;
 using BM.Model.Models;
 using System.Collections.Generic;
+using BM.Data.Repositories.Abstract;
+using BM.Service.Interfaces;
 
 namespace BM.Service
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository userRepository;
-        //private readonly ICategoryRepository categoryRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public UserService(IUserRepository userRepository, IUnitOfWork unitOfWork)
+        public UserService(IUnitOfWork unitOfWork)
         {
-            this.userRepository = userRepository;
             this.unitOfWork = unitOfWork;
         }
 
-        #region IGadgetService Members
-
         public IEnumerable<AppUser> GetUsers()
         {
-            var users = userRepository.GetAll();
+            var users = unitOfWork.Users.GetAll();
             return users;
         }
 
-        public AppUser GetUser(int id)
+        public AppUser GetUser(string username)
         {
-            var user = userRepository.GetById(id);
+            var user = unitOfWork.Users.GetByUserName(username);
             return user;
         }
 
         public void CreateUser(AppUser user)
         {
-            userRepository.Add(user);
-        }
-
-        public void SaveUser()
-        {
+            unitOfWork.Users.Add(user);
             unitOfWork.Commit();
         }
 
-        #endregion
+        public void EditUser(AppUser user)
+        {
+            unitOfWork.Users.Update(user);
+            unitOfWork.Commit();
+        }
 
+        public void RemoveUser(AppUser user)
+        {
+            unitOfWork.Users.Delete(user);
+            unitOfWork.Commit();
+        }
     }
 }
