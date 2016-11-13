@@ -8,8 +8,10 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using BM.Data;
 using BM.Data.Infrastructure;
 using BM.Data.Repositories;
+using BM.Data.Repositories.Concrete;
 using BM.Service;
 
 namespace BM.DemoWeb.App_Start
@@ -28,7 +30,7 @@ namespace BM.DemoWeb.App_Start
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
-            builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
+            builder.RegisterType<BirthdaysEntities>().As<IBirthdaysEntities>().InstancePerRequest();
 
             // Repositories
             builder.RegisterAssemblyTypes(typeof(UserRepository).Assembly)

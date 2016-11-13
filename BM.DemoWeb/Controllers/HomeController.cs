@@ -1,6 +1,7 @@
 ﻿using BM.Service;
 using System.Linq;
 using System.Web.Mvc;
+using BM.Service.Interfaces;
 
 namespace BM.DemoWeb.Controllers
 {

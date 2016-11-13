@@ -9,6 +9,8 @@ using System.Linq;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
+using BM.Data;
+using BM.Data.Repositories.Concrete;
 
 namespace BM.Web.App_Start
 {
@@ -26,7 +28,7 @@ namespace BM.Web.App_Start
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
-            builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
+            builder.RegisterType<BirthdaysEntities>().As<IBirthdaysEntities>().InstancePerRequest();
 
             // Repositories
             builder.RegisterAssemblyTypes(typeof(UserRepository).Assembly)
