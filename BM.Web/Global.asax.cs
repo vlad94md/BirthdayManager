@@ -1,4 +1,4 @@
-﻿using BM.Web.App_Start;
+﻿using BM.DemoWeb.App_Start;
 using System;
 using System.Web;
 using System.Web.Http;
@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace BM.Web
+namespace BM.DemoWeb
 {
     public class Global : HttpApplication
     {

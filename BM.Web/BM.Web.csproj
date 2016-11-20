@@ -1783,6 +1783,7 @@
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\GadgetFormViewModel.cs" />
     <Compile Include="ViewModels\GadgetViewModel.cs" />
+    <Compile Include="ViewModels\LogInModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2185,10 +2186,6 @@
     <ProjectReference Include="..\BM.Data\BM.Data.csproj">
       <Project>{8db528da-b6b9-4d03-aa9e-8b8f50a0e46a}</Project>
       <Name>BM.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BM.Model\BM.Model.csproj">
-      <Project>{04da8a1d-9ba3-416e-b320-89617e3b9cb8}</Project>
-      <Name>BM.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\BM.Service\BM.Service.csproj">
       <Project>{6bd95c9f-9203-4425-9c90-18ac92deec55}</Project>

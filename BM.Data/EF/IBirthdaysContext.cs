@@ -2,12 +2,12 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading.Tasks;
-using BM.Model.Models;
+using BM.Data.Entities;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace BM.Data
+namespace BM.Data.EF
 {
-    public interface IBirthdaysEntities
+    public interface IBirthdaysContext
     {
         DbSet<BirthdayArrangement> BirthdayArrangements { get; set; }
         DbSet<Payment> Payments { get; set; }

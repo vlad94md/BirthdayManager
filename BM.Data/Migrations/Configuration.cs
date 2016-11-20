@@ -1,3 +1,5 @@
+using BM.Data.EF;
+
 namespace BM.Data.Migrations
 {
     using System;
@@ -5,7 +7,7 @@ namespace BM.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<BM.Data.BirthdaysEntities>
+    internal sealed class Configuration : DbMigrationsConfiguration<BirthdaysContext>
     {
         public Configuration()
         {
@@ -13,7 +15,7 @@ namespace BM.Data.Migrations
             //ContextKey = "BM.Data.BirthdaysEntities";
         }
 
-        protected override void Seed(BM.Data.BirthdaysEntities context)
+        protected override void Seed(BirthdaysContext context)
         {
             //  This method will be called after migrating to the latest version.
 

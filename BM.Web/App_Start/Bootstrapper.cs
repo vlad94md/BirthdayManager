@@ -4,15 +4,17 @@ using Autofac.Integration.WebApi;
 using BM.Data.Infrastructure;
 using BM.Data.Repositories;
 using BM.Service;
-using BM.Web.Mappings;
+using BM.DemoWeb.Mappings;
 using System.Linq;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using BM.Data;
+using BM.Data.EF;
 using BM.Data.Repositories.Concrete;
+using BM.Service.Services;
 
-namespace BM.Web.App_Start
+namespace BM.DemoWeb.App_Start
 {
     public class Bootstrapper
     {
@@ -28,7 +30,7 @@ namespace BM.Web.App_Start
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
-            builder.RegisterType<BirthdaysEntities>().As<IBirthdaysEntities>().InstancePerRequest();
+            builder.RegisterType<BirthdaysContext>().As<IBirthdaysContext>().InstancePerRequest();
 
             // Repositories
             builder.RegisterAssemblyTypes(typeof(UserRepository).Assembly)

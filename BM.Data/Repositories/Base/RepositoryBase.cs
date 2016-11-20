@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using BM.Data.EF;
 
 namespace BM.Data.Repositories.Base
 {
     public abstract class RepositoryBase<T> where T : class
     {
         #region Properties
-        private readonly IBirthdaysEntities dataContext;
+        private readonly IBirthdaysContext dataContext;
         private readonly IDbSet<T> dbSet;
         #endregion
 
-        protected RepositoryBase(IBirthdaysEntities context)
+        protected RepositoryBase(IBirthdaysContext context)
         {
             dataContext = context;
             dbSet = dataContext.Set<T>();

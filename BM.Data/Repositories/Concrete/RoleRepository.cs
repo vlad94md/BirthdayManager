@@ -1,12 +1,13 @@
-using BM.Data.Repositories.Abstract;
+using BM.Data.EF;
+using BM.Data.Entities;
 using BM.Data.Repositories.Base;
-using BM.Model.Models;
+using BM.Data.Repositories.Interfaces;
 
 namespace BM.Data.Repositories.Concrete
 {
     public class RoleRepository : RepositoryBase<AppRole>, IRoleRepository
     {
-        public RoleRepository(IBirthdaysEntities context)
+        public RoleRepository(IBirthdaysContext context)
             : base(context) { }
     }
 }

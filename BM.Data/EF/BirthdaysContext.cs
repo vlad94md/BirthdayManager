@@ -1,16 +1,13 @@
-﻿using System;
+﻿using System.Data.Entity;
 using BM.Data.Configuration;
-using BM.Model;
-using BM.Model.Models;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+using BM.Data.Entities;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace BM.Data
+namespace BM.Data.EF
 {
-    public class BirthdaysEntities : IdentityDbContext<AppUser>, IBirthdaysEntities
+    public class BirthdaysContext : IdentityDbContext<AppUser>, IBirthdaysContext
     {
-        public BirthdaysEntities() : base("BMEntities")
+        public BirthdaysContext() : base("BMEntities")
         {
             Database.SetInitializer(new BirthdaysSeedData());
             Database.Initialize(true);

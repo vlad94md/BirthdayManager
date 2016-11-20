@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BM.Model.ViewModels
+namespace BM.DemoWeb.Models
 {
     public class LogInModel
     {

@@ -1,14 +1,15 @@
 using System.Collections.Generic;
-using BM.Model.Models;
+using BM.Data.Entities;
+using BM.Service.Dto;
 
 namespace BM.Service.Interfaces
 {
     public interface IUserService
     {
-        IEnumerable<AppUser> GetUsers();
-        AppUser GetUser(string username);
-        void CreateUser(AppUser user);
-        void RemoveUser(AppUser user);
-        void EditUser(AppUser user);
+        IEnumerable<UserDto> GetUsers();
+        UserDto GetUser(string username);
+        void CreateUser(UserDto user);
+        void RemoveUser(UserDto user);
+        void EditUser(UserDto user);
     }
 }

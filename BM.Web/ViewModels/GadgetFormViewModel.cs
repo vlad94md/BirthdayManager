@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web;
 
-namespace BM.Web.ViewModels
+namespace BM.DemoWeb.ViewModels
 {
     public class GadgetFormViewModel
     {

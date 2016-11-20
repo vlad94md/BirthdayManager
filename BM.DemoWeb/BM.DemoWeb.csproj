@@ -227,6 +227,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -248,17 +249,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BM.Data\BM.Data.csproj">
-      <Project>{8DB528DA-B6B9-4D03-AA9E-8B8F50A0E46A}</Project>
-      <Name>BM.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BM.Model\BM.Model.csproj">
-      <Project>{04DA8A1D-9BA3-416E-B320-89617E3B9CB8}</Project>
-      <Name>BM.Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BM.Service\BM.Service.csproj">
       <Project>{6bd95c9f-9203-4425-9c90-18ac92deec55}</Project>
       <Name>BM.Service</Name>

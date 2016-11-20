@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BM.Data.Repositories;
-using BM.Data.Repositories.Abstract;
+using BM.Data.Repositories.Interfaces;
 
 namespace BM.Data.Infrastructure
 {

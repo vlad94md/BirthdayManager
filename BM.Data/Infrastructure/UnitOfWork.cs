@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BM.Data.EF;
 using BM.Data.Repositories;
-using BM.Data.Repositories.Abstract;
 using BM.Data.Repositories.Concrete;
+using BM.Data.Repositories.Interfaces;
 
 namespace BM.Data.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private IBirthdaysEntities dbContext;
+        private IBirthdaysContext dbContext;
         private IUserRepository userRepository;
         private IPaymentRepository paymentRepository;
         private IBirthdayArrangementRepository birthdayArrangementRepository;
         private IGiftRepository giftRepository;
         private IRoleRepository roleRepository;
 
-        public UnitOfWork(IBirthdaysEntities context)
+        public UnitOfWork(IBirthdaysContext context)
         {
             this.dbContext = context;
         }

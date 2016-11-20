@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using BM.Model;
+using BM.Data;
 using BM.Service;
-using BM.Web.ViewModels;
+using BM.DemoWeb.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using BM.Service.Interfaces;
 
-namespace BM.Web.Controllers
+namespace BM.DemoWeb.Controllers
 {
 
     public class HomeController : Controller

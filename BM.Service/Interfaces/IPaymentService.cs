@@ -1,13 +1,14 @@
 using System.Collections.Generic;
-using BM.Model.Models;
+using BM.Data.Entities;
+using BM.Service.Dto;
 
 namespace BM.Service.Interfaces
 {
     public interface IPaymentService
     {
-        IEnumerable<Payment> GetPayments();
-        Payment GetPayment(int id);
-        IEnumerable<Payment> GetPaymentsForUser(AppUser user);
-        void AddPayment(Payment payment);
+        IEnumerable<PaymentDto> GetPayments();
+        PaymentDto GetPayment(int id);
+        IEnumerable<PaymentDto> GetPaymentsForUser(UserDto user);
+        void AddPayment(PaymentDto payment);
     }
 }

@@ -1,7 +1,7 @@
-﻿using BM.Model.ViewModels;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using BM.DemoWeb.Models;
 
 namespace BM.DemoWeb.Controllers
 {

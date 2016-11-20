@@ -91,21 +91,26 @@
   <ItemGroup>
     <Compile Include="Configurations\BirthdayArrangementConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
-    <Compile Include="IBirthdaysEntities.cs" />
+    <Compile Include="Entities\AppRole.cs" />
+    <Compile Include="Entities\AppUser.cs" />
+    <Compile Include="Entities\BirthdayArrangement.cs" />
+    <Compile Include="Entities\Gift.cs" />
+    <Compile Include="Entities\Payment.cs" />
+    <Compile Include="EF\IBirthdaysContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Repositories\Abstract\IBirthdayArrangementRepository.cs" />
-    <Compile Include="Repositories\Abstract\IGiftRepository.cs" />
-    <Compile Include="Repositories\Abstract\IPaymentRepository.cs" />
-    <Compile Include="Repositories\Abstract\IRoleRepository.cs" />
-    <Compile Include="Repositories\Abstract\IUserRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IBirthdayArrangementRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IGiftRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IPaymentRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRoleRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Repositories\Base\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Concrete\BirthdayArrangementRepository.cs" />
-    <Compile Include="BirthdaysEntities.cs" />
-    <Compile Include="BirthdaysSeedData.cs" />
+    <Compile Include="EF\BirthdaysContext.cs" />
+    <Compile Include="EF\BirthdaysSeedData.cs" />
     <Compile Include="Repositories\Concrete\GiftRepository.cs" />
     <Compile Include="Repositories\Concrete\PaymentRepository.cs" />
     <Compile Include="Repositories\Concrete\RoleRepository.cs" />
@@ -114,12 +119,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BM.Model\BM.Model.csproj">
-      <Project>{04da8a1d-9ba3-416e-b320-89617e3b9cb8}</Project>
-      <Name>BM.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

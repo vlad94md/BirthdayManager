@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
-using BM.Model;
-using BM.Web.ViewModels;
+using BM.Data;
+using BM.DemoWeb.ViewModels;
 
-namespace BM.Web.Mappings
+namespace BM.DemoWeb.Mappings
 {
     public class ViewModelToDomainMappingProfile : Profile
     {

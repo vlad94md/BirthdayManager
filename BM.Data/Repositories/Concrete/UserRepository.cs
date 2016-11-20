@@ -1,13 +1,14 @@
+using BM.Data.EF;
+using BM.Data.Entities;
 using BM.Data.Infrastructure;
-using BM.Data.Repositories.Abstract;
 using BM.Data.Repositories.Base;
-using BM.Model.Models;
+using BM.Data.Repositories.Interfaces;
 
 namespace BM.Data.Repositories.Concrete
 {
     public class UserRepository : RepositoryBase<AppUser>, IUserRepository
     {
-        public UserRepository(IBirthdaysEntities context)
+        public UserRepository(IBirthdaysContext context)
             : base(context) { }
 
         public AppUser GetByUserName(string username)

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BM.Data.Entities;
 using BM.Data.Infrastructure;
-using BM.Model.Models;
 using BM.Service.Interfaces;
-using Microsoft.VisualBasic.ApplicationServices;
 
-namespace BM.Service
+namespace BM.Service.Services
 {
     public class BirthdayArrangementService : IBirthdayArrangementService
     {

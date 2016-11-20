@@ -1,7 +1,7 @@
+using BM.Data.Entities;
 using BM.Data.Repositories.Base;
-using BM.Model.Models;
 
-namespace BM.Data.Repositories.Abstract
+namespace BM.Data.Repositories.Interfaces
 {
     public interface IUserRepository : IRepository<AppUser>
     {

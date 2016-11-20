@@ -1,16 +1,16 @@
-﻿using BM.Model.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using BM.Data.Entities;
 
-namespace BM.Data
+namespace BM.Data.EF
 {
-    public class BirthdaysSeedData : DropCreateDatabaseIfModelChanges<BirthdaysEntities>
+    public class BirthdaysSeedData : DropCreateDatabaseIfModelChanges<BirthdaysContext>
     {
-        private static BirthdaysEntities context;
+        private static BirthdaysContext context;
 
-        protected override void Seed(BirthdaysEntities _context)
+        protected override void Seed(BirthdaysContext _context)
         {
             context = _context;
 

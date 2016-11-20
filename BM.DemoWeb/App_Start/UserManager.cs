@@ -1,5 +1,6 @@
 ﻿using BM.Data;
-using BM.Model.Models;
+using BM.Data.EF;
+using BM.Data.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -19,7 +20,7 @@ namespace BM.DemoWeb.App_Start
             IdentityFactoryOptions<AppUserManager> options, IOwinContext context)
         {
             var manager = new AppUserManager(
-                new UserStore<AppUser>(context.Get<BirthdaysEntities>()));
+                new UserStore<AppUser>(context.Get<BirthdaysContext>()));
 
             // optionally configure your manager
             // ...

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace BM.Web.Mappings
+namespace BM.DemoWeb.Mappings
 {
     public class AutoMapperConfiguration
     {

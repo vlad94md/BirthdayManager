@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BM.Web.ViewModels
+namespace BM.DemoWeb.ViewModels
 {
     public class CategoryViewModel
     {

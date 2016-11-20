@@ -1,6 +1,6 @@
 using System;
 
-namespace BM.Web.ViewModels
+namespace BM.DemoWeb.ViewModels
 {
     public class UserViewModel
     {

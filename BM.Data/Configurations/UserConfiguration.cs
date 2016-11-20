@@ -1,5 +1,5 @@
-﻿using BM.Model.Models;
-using System.Data.Entity.ModelConfiguration;
+﻿using System.Data.Entity.ModelConfiguration;
+using BM.Data.Entities;
 
 namespace BM.Data.Configuration
 {

@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using BM.Model.Models;
 using BM.Service;
-using BM.Web.ViewModels;
+using BM.DemoWeb.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.UI.WebControls;
+using BM.Data.Entities;
 using BM.Service.Interfaces;
 
-namespace BM.Web.Controllers.Api
+namespace BM.DemoWeb.Controllers.Api
 {
     public class UserController : ApiController
     {

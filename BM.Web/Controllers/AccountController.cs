@@ -1,15 +1,15 @@
-﻿using BM.Model.Models;
-using BM.Service;
-using BM.Web.App_Start;
+﻿using BM.Service;
+using BM.DemoWeb.App_Start;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BM.Data.Entities;
 using BM.Service.Interfaces;
 
-namespace BM.Web.Controllers
+namespace BM.DemoWeb.Controllers
 {
     public class AccountController : Controller
     {

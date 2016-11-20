@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using BM.Model;
-using BM.Model.Models;
-using BM.Web.ViewModels;
+using BM.Data.Entities;
+using BM.Data;
+using BM.DemoWeb.ViewModels;
 
-namespace BM.Web.Mappings
+namespace BM.DemoWeb.Mappings
 {
     public class DomainToViewModelMappingProfile : Profile
     {
