@@ -9,5 +9,10 @@ namespace BM.Data.Repositories.Concrete
     {
         public BirthdayArrangementRepository(IBirthdaysContext context)
             : base(context) { }
+
+        public BirthdayArrangement GetById(int id)
+        {
+            return Get(x => x.Id == id);
+        }
     }
 }

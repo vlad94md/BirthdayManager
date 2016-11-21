@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
 using BM.Data.Entities;
 using BM.Data.Infrastructure;
 using BM.Service.Dto;
 using BM.Service.Interfaces;
+using System.Collections.Generic;
 
 namespace BM.Service.Services
 {
@@ -30,30 +30,30 @@ namespace BM.Service.Services
             return Mapper.Map<AppUser, UserDto>(user);
         }
 
-        public void CreateUser(UserDto user)
+        public void CreateUser(UserDto userDto)
         {
             Mapper.Initialize(cfg => cfg.CreateMap<UserDto, AppUser>());
-            var userModel = Mapper.Map<UserDto, AppUser>(user);
+            var user = Mapper.Map<UserDto, AppUser>(userDto);
 
-            unitOfWork.Users.Add(userModel);
+            unitOfWork.Users.Add(user);
             unitOfWork.Commit();
         }
 
-        public void EditUser(UserDto user)
+        public void EditUser(UserDto userDto)
         {
             Mapper.Initialize(cfg => cfg.CreateMap<UserDto, AppUser>());
-            var userModel = Mapper.Map<UserDto, AppUser>(user);
+            var user = Mapper.Map<UserDto, AppUser>(userDto);
 
-            unitOfWork.Users.Update(userModel);
+            unitOfWork.Users.Update(user);
             unitOfWork.Commit();
         }
 
-        public void RemoveUser(UserDto user)
+        public void RemoveUser(UserDto userDto)
         {
             Mapper.Initialize(cfg => cfg.CreateMap<UserDto, AppUser>());
-            var userModel = Mapper.Map<UserDto, AppUser>(user);
+            var user = Mapper.Map<UserDto, AppUser>(userDto);
 
-            unitOfWork.Users.Delete(userModel);
+            unitOfWork.Users.Delete(user);
             unitOfWork.Commit();
         }
     }

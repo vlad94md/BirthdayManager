@@ -12,8 +12,6 @@ namespace BM.DemoWeb.Controllers
 
     public class HomeController : Controller
     {
-        //private readonly ICategoryService categoryService;
-        //private readonly IGadgetService gadgetService;
         private readonly IUserService userService;
 
         public HomeController(IUserService userService)

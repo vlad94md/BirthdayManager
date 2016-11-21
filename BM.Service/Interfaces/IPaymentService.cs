@@ -8,7 +8,7 @@ namespace BM.Service.Interfaces
     {
         IEnumerable<PaymentDto> GetPayments();
         PaymentDto GetPayment(int id);
-        IEnumerable<PaymentDto> GetPaymentsForUser(UserDto user);
+        IEnumerable<PaymentDto> GetPaymentsForUser(UserDto userDto);
         void AddPayment(PaymentDto payment);
     }
 }

@@ -13,7 +13,7 @@ namespace BM.DemoWeb
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            Bootstrapper.Run();
+            //AutoMapperConfiguration.Configure();
         }
     }
 }

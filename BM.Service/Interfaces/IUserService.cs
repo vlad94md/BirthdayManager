@@ -8,8 +8,8 @@ namespace BM.Service.Interfaces
     {
         IEnumerable<UserDto> GetUsers();
         UserDto GetUser(string username);
-        void CreateUser(UserDto user);
-        void RemoveUser(UserDto user);
-        void EditUser(UserDto user);
+        void CreateUser(UserDto userDto);
+        void RemoveUser(UserDto userDto);
+        void EditUser(UserDto userDto);
     }
 }
