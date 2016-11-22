@@ -1,7 +1,7 @@
-﻿using System.Data.Entity;
-using BM.Data.Configuration;
+﻿using BM.Data.Configuration;
 using BM.Data.Entities;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace BM.Data.EF
 {
@@ -22,6 +22,7 @@ namespace BM.Data.EF
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new BirthdayArrangementConfiguration());
 
+            // Identity Configurations
             modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
             modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
             modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });

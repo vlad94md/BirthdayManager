@@ -22,7 +22,13 @@ namespace BM.Service.Services
         {
             var arrangements = unitOfWork.BirthdayArrangements.GetAll();
 
-            Mapper.Initialize(cfg => cfg.CreateMap<BirthdayArrangement, BirthdayArrangementDto>());
+            Mapper.Initialize(cfg => {
+                cfg.CreateMap<BirthdayArrangement, BirthdayArrangementDto>();
+                cfg.CreateMap<AppUser, UserDto>();
+                cfg.CreateMap<Gift, GiftDto>();
+                cfg.CreateMap<Payment, PaymentDto>();
+            });
+
             return Mapper.Map<IEnumerable<BirthdayArrangement>, List<BirthdayArrangementDto>>(arrangements);
         }
 
@@ -30,13 +36,11 @@ namespace BM.Service.Services
         {
             var arrangement = unitOfWork.BirthdayArrangements.GetById(id);
 
-            Mapper.Initialize(cfg => cfg.CreateMap<BirthdayArrangement, BirthdayArrangementDto>());
             return Mapper.Map<BirthdayArrangement, BirthdayArrangementDto>(arrangement);
         }
 
         public void CreateArrangement(BirthdayArrangementDto arrangementDto)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<BirthdayArrangementDto, BirthdayArrangement>());
             var arrangement = Mapper.Map<BirthdayArrangementDto, BirthdayArrangement>(arrangementDto);
 
             unitOfWork.BirthdayArrangements.Add(arrangement);
@@ -45,7 +49,6 @@ namespace BM.Service.Services
 
         public void CompleteArrangement(BirthdayArrangementDto arrangementDto)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<BirthdayArrangementDto, BirthdayArrangement>());
             var arrangement = Mapper.Map<BirthdayArrangementDto, BirthdayArrangement>(arrangementDto);
             arrangement.IsCompleted = true;
 

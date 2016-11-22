@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BM.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using BM.Data.Entities;
 
 namespace BM.Data.EF
 {
@@ -197,6 +197,7 @@ namespace BM.Data.EF
                     BirthdayMan = users.FirstOrDefault(x => x.UserName == "ncurusi"),
                     IsCompleted = true,
                     GiftId = 1,
+                    Date = users.First(x => x.UserName == "ncurusi").DateOfBirth,
                     Сongratulators = new List<AppUser>() {
                         users.FirstOrDefault(x => x.UserName == "vguleaev"),
                         users.FirstOrDefault(x => x.UserName == "stibulschii"),
@@ -209,6 +210,7 @@ namespace BM.Data.EF
                     BirthdayMan = users.FirstOrDefault(x => x.UserName == "vguleaev"),
                     IsCompleted = true,
                     GiftId = 4,
+                    Date = users.First(x => x.UserName == "vguleaev").DateOfBirth,
                     Сongratulators = new List<AppUser>() {
                         users.FirstOrDefault(x => x.UserName == "stibulschii"),
                         users.FirstOrDefault(x => x.UserName == "ncurusi"),
@@ -220,6 +222,7 @@ namespace BM.Data.EF
                     BirthdayMan = users.FirstOrDefault(x => x.UserName == "sguzun"),
                     IsCompleted = false,
                     GiftId = 2,
+                    Date = users.First(x => x.UserName == "sguzun").DateOfBirth,
                     Сongratulators = new List<AppUser>() { }
                 },
                  new BirthdayArrangement
@@ -227,6 +230,7 @@ namespace BM.Data.EF
                     BirthdayMan = users.FirstOrDefault(x => x.UserName == "adiacov"),
                     IsCompleted = false,
                     GiftId = 3,
+                    Date = users.First(x => x.UserName == "adiacov").DateOfBirth,
                     Сongratulators = new List<AppUser>() {
                         users.FirstOrDefault(x => x.UserName == "vguleaev"),
                         users.FirstOrDefault(x => x.UserName == "stibulschii")

@@ -97,6 +97,10 @@
     <Compile Include="Entities\Gift.cs" />
     <Compile Include="Entities\Payment.cs" />
     <Compile Include="EF\IBirthdaysContext.cs" />
+    <Compile Include="Migrations\201611221536131_AddedDateColumnToBirthdayArrangement.cs" />
+    <Compile Include="Migrations\201611221536131_AddedDateColumnToBirthdayArrangement.Designer.cs">
+      <DependentUpon>201611221536131_AddedDateColumnToBirthdayArrangement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\Interfaces\IBirthdayArrangementRepository.cs" />
     <Compile Include="Repositories\Interfaces\IGiftRepository.cs" />
@@ -119,6 +123,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611221536131_AddedDateColumnToBirthdayArrangement.resx">
+      <DependentUpon>201611221536131_AddedDateColumnToBirthdayArrangement.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

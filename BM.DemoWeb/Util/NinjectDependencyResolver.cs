@@ -26,6 +26,8 @@ namespace BM.DemoWeb.Util
         private void AddBindings()
         {
             kernel.Bind<IUserService>().To<UserService>();
+            kernel.Bind<IBirthdayArrangementService>().To<BirthdayArrangementService>();
+            kernel.Bind<IPaymentService>().To<PaymentService>();
         }
     }
 }

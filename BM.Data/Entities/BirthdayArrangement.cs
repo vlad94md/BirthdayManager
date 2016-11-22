@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BM.Data.Entities
 {
@@ -6,6 +7,7 @@ namespace BM.Data.Entities
     {
         public int Id { get; set; }
         public bool IsCompleted { get; set; }
+        public DateTime Date { get; set; }
 
         public int GiftId { get; set; }
         public Gift Gift { get; set; }
