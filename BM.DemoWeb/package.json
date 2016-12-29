@@ -1,0 +1,26 @@
+{
+  "name": "bdpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bog",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1",
+    "fullcalendar": "^3.0.1",
+    "moment": "^2.17.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-router": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.10",
+    "webpack": "^1.13.3",
+    "ts-loader": "^1.2.2",
+    "source-map-loader": "^0.1.5"
+  }
+}

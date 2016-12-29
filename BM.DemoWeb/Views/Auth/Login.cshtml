@@ -9,8 +9,77 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-    @Html.EditorForModel()
-    <p>
-        <button type="submit">Log In</button>
-    </p>
+    <html>
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    </head>
+    <body style="background-color: #2E363F">
+        <div class="row" style="margin-top: 10%;">
+            <div class="col-md-4 col-md-offset-4">
+                <div id="log-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="Username" style="color: white">Username</label>
+                            <input type="text" class="form-control creds" name="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" style="color: white">Password</label>
+                            <input type="password" class="form-control" id="pass" name="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="Return Url" style="color: white">Return Url</label>
+                            <input type="text" class="form-control" id="returnurl" name="ReturnUrl">
+                        </div>
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-primary" id="log-in" value="Log in">
+                        </div>
+                        <div>
+                            <input type="button" class="btn btn-primary" id="first-enter" value="First Enter?">
+                        </div>
+
+                    </form>
+                </div>
+
+                <div id="reg-form" style="display: none">
+                    <form>
+                        <div class="form-group">
+                            <label for="Username" style="color: white">Username</label>
+                            <input type="text" class="form-control creds">
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" style="color: white">Password</label>
+                            <input type="email" class="form-control" id="exampleInputEmail2">
+                        </div>
+                        <div class="form-group" id="pswrd-confirm">
+                            <label for="Confirm Password" style="color: white">Confirm Password</label>
+                            <input type="email" class="form-control" id="exampleInputEmail2">
+                        </div>
+                        <div class="pull-right">
+                            <input type="button" class="btn btn-primary" id="reg-me" value="Register me">
+                        </div>
+                        <div>
+                            <input type="button" class="btn btn-primary" id="back" value="Back">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function(){
+                $('#first-enter').on('click', function(){
+                    $('#log-form').hide();
+                    $('#reg-form').show();
+                $('#back').on('click', function(){
+                        $('#reg-form').hide();
+                        $('#log-form').show();
+                })
+
+                })
+            })
+        </script>
+    </body>
+</html>
 }

@@ -1,11 +1,117 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/node_modules/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
+    <link href='~/node_modules/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <script src="~/node_modules/moment/min/moment.min.js"></script>
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/node_modules/fullcalendar/dist/fullcalendar.min.js"></script>
 
-<h2>Identity Test</h2>
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+    <link href="~/Content/sideMenu.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
 
-<p>
-    Hello @User.Identity.Name
-</p>
+    <script src="~/node_modules/react/dist/react.min.js"></script>
+    <script src="~/node_modules/react-dom/dist/react-dom.min.js"></script>
+    <script>
+
+	$(document).ready(function() {
+// === Sidebar navigation === //
+
+	$('.submenu > a').click(function(e)
+	{
+		e.preventDefault();
+		var submenu = $(this).siblings('ul');
+		var li = $(this).parents('li');
+		var submenus = $('#sidebar li.submenu ul');
+		var submenus_parents = $('#sidebar li.submenu');
+		if(li.hasClass('open'))
+		{
+			submenu.slideUp();
+			li.removeClass('open');
+		} else
+		{
+			submenu.slideDown();
+			li.addClass('open');
+		}
+	});
+
+		$('#calendar').fullCalendar({
+      droppable: true,
+			header: {
+				left: 'prev, ,today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay, ,next'
+			},
+			defaultDate: '2016-09-12',
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				{
+					'title': 'Somebodies birthday',
+					'start': '2016-11-22'
+				}
+			]
+		});
+
+	});
+
+    </script>
+    <style>
+        #calendar {
+            max-width: 100%;
+            overflow-y: 'hidden !important';
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="~/WorkFiles/Prod/fat.js"></script>
+    <script>
+$('.badge').draggable({
+  revert: true,      // immediately snap back to original position
+    revertDuration: 300
+});
+
+      $(function(){
+        $('.fc-day-number').css({
+                  float: 'right',
+                  backgroundColor: '#1f262d',
+                  width: '25px',
+                  height: '25px',
+                  textAlign: 'center',
+                  color: '#fff'
+                })
+
+        $('.fc-button').on('click', function(){
+          $('.fc-day-number').css({
+                  float: 'right',
+                  backgroundColor: '#1f262d',
+                  width: '25px',
+                  height: '25px',
+                  textAlign: 'center',
+                  color: '#fff'
+                })
+        });
+      })
+    </script>
+    <script>
+            $(function(){
+                $('#first-enter').on('click', function(){
+                    $('#log-form').hide();
+                    $('#reg-form').show();
+                $('#back').on('click', function(){
+                        $('#reg-form').hide();
+                        $('#log-form').show();
+                })
+
+                })
+            })
+    </script>
+</body>
+</html>

@@ -1,18 +1,71 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+body {
+	background-color: #d8d8d8
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.panel-right {
+	width: 100%;
+	background-color: #fff;
+	border-bottom: 1px solid #dddddd;
+	position: absolute;
+	right: 0;
+	top:38px;
+	height:76px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.widget-box {
+	background: none repeat scroll 0 0 #F9F9F9;
+	border-left: 1px solid #CDCDCD;
+	border-top: 1px solid #CDCDCD;
+	border-right: 1px solid #CDCDCD;
+	clear: both;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	position: relative;
 }
 
+#add-event-but{
+	margin: 10px;
+}
+
+#sidebar > ul li ul li a {
+    padding: 10px 0 10px 25px;
+}
+/* BOOTSTRAP OVERRIDING */
+.input-group-addon {
+    padding: 5px 12px;
+}
+
+hr {
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.panel-content {
+	margin-top: 10px;
+}
+
+.badge {
+	margin-right: 5px;
+}
+
+.label {
+    display: inline;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.fc-day-grid-container {
+	overflow-y: hidden !important;
+}
+
+.fc-unthemed .fc-content, .fc-unthemed .fc-divider, .fc-unthemed .fc-list-heading td, .fc-unthemed .fc-list-view, .fc-unthemed .fc-popover, .fc-unthemed .fc-row, .fc-unthemed tbody, .fc-unthemed td, .fc-unthemed th, .fc-unthemed thead {
+	border-color: #458689;
+}

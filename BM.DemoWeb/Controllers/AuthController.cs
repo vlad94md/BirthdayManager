@@ -10,7 +10,7 @@ namespace BM.DemoWeb.Controllers
     {
         // GET: Account
         [HttpGet]
-        public ActionResult LogIn(string returnUrl)
+        public ActionResult LogIn(string returnUrl = "/auth")
         {
             var model = new LogInModel
             {
@@ -55,7 +55,7 @@ namespace BM.DemoWeb.Controllers
         {
             if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
             {
-                return Url.Action("index", "home");
+                return "/auth";
             }
 
             return returnUrl;
