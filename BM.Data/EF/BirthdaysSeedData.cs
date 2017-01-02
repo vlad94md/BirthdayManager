@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BM.Data.EF
 {
-    public class BirthdaysSeedData : DropCreateDatabaseIfModelChanges<BirthdaysContext>
+    public class BirthdaysSeedData : DropCreateDatabaseAlways<BirthdaysContext>
     {
         private static BirthdaysContext context;
 
@@ -44,7 +44,8 @@ namespace BM.Data.EF
         private static List<AppUser> GetUsers()
         {
             var currentDate = DateTime.Now;
-            var thisMonth = currentDate.Month;
+            string thisMonth = currentDate.Month > 10 ? currentDate.Month.ToString() : ("0" + currentDate.Month);
+
 
             return new List<AppUser>
             {
