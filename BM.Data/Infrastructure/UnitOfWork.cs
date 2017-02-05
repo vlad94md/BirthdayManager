@@ -4,79 +4,71 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BM.Data.EF;
+using BM.Data.Entities;
+using BM.Data.Identity;
 using BM.Data.Repositories;
 using BM.Data.Repositories.Concrete;
 using BM.Data.Repositories.Interfaces;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace BM.Data.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private IBirthdaysContext dbContext;
+        private BirthdaysContext dbContext;
+
         private IUserRepository userRepository;
         private IPaymentRepository paymentRepository;
-        private IBirthdayArrangementRepository birthdayArrangementRepository;
+        private IBirthdayArrangementRepository birthdaysRepository;
         private IGiftRepository giftRepository;
-        private IRoleRepository roleRepository;
+        private ApplicationUserManager userManager;
+        private ApplicationRoleManager roleManager;
 
-        public UnitOfWork(IBirthdaysContext context)
+        public UnitOfWork()
         {
-            this.dbContext = context;
+            dbContext = new BirthdaysContext();
+            userManager = new ApplicationUserManager(new UserStore<AppUser>(dbContext));
+            roleManager = new ApplicationRoleManager(new RoleStore<AppRole>(dbContext));
         }
 
         public IUserRepository Users
         {
-            get
-            {
-                if (userRepository == null)
-                    userRepository = new UserRepository(dbContext);
-                return userRepository;
-            }
+            get { return userRepository ?? (userRepository = new UserRepository(dbContext)); }
         }
 
         public IPaymentRepository Payments
         {
-            get
-            {
-                if (paymentRepository == null)
-                    paymentRepository = new PaymentRepository(dbContext);
-                return paymentRepository;
-            }
+            get { return paymentRepository ?? (paymentRepository = new PaymentRepository(dbContext)); }
         }
 
         public IBirthdayArrangementRepository BirthdayArrangements
         {
-            get
-            {
-                if (birthdayArrangementRepository == null)
-                    birthdayArrangementRepository = new BirthdayArrangementRepository(dbContext);
-                return birthdayArrangementRepository;
-            }
+            get { return birthdaysRepository ?? (birthdaysRepository = new BirthdayArrangementRepository(dbContext));}
         }
 
         public IGiftRepository Gifts
         {
-            get
-            {
-                if (giftRepository == null)
-                    giftRepository = new GiftRepository(dbContext);
-                return giftRepository;
-            }
+            get { return giftRepository ?? (giftRepository = new GiftRepository(dbContext)); }
         }
 
-        public IRoleRepository Roles
+        public ApplicationUserManager UserManager
         {
-            get
-            {
-                if (roleRepository == null)
-                    roleRepository = new RoleRepository(dbContext);
-                return roleRepository;
-            }
+            get { return userManager; }
+        }
+
+        public ApplicationRoleManager RoleManager
+        {
+            get { return roleManager; }
         }
 
         public void Commit()
         {
             dbContext.SaveChanges();
+        }
+
+        public async Task SaveAsync()
+        {
+            await dbContext.SaveChangesAsync();
         }
 
         private bool disposed;

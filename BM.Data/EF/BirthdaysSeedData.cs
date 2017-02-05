@@ -53,7 +53,7 @@ namespace BM.Data.EF
                     FirstName = "Vladislav",
                     LastName = "Guleaev",
                     UserName= "vguleaev",
-                    Password = "12345",
+                    PasswordHash = stringToBase64ByteArray("12345"),
                     Balance = 100,
                     DateOfBirth = DateTime.ParseExact("1994.01." + thisMonth, "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
@@ -62,7 +62,7 @@ namespace BM.Data.EF
                     FirstName = "Serghei",
                     LastName = "Tibulschii",
                     UserName = "stibulschii",
-                    Password = "12345",
+                    PasswordHash = stringToBase64ByteArray("12345"),
                     Balance = -100,
                     DateOfBirth = DateTime.ParseExact("1994.05." + thisMonth, "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
@@ -71,7 +71,7 @@ namespace BM.Data.EF
                     FirstName = "Natalia",
                     LastName = "Curusi",
                     UserName = "ncurusi",
-                    Password = "12345",
+                    PasswordHash = stringToBase64ByteArray("12345"),
                     Balance = 0,
                     DateOfBirth = DateTime.ParseExact("1980.15." + thisMonth, "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
@@ -80,7 +80,7 @@ namespace BM.Data.EF
                     FirstName = "Sandu",
                     LastName = "Guzun",
                     UserName = "sguzun",
-                    Password = "12345",
+                    PasswordHash = stringToBase64ByteArray("12345"),
                     Balance = 75,
                     DateOfBirth = DateTime.ParseExact("1992.20." + thisMonth, "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
@@ -89,7 +89,7 @@ namespace BM.Data.EF
                     FirstName = "Alexandru",
                     LastName = "Diacov",
                     UserName = "adiacov",
-                    Password = "12345",
+                    PasswordHash = stringToBase64ByteArray("12345"),
                     Balance = 0,
                     DateOfBirth = DateTime.ParseExact("1993.25." + thisMonth, "yyyy.dd.MM",
                                     System.Globalization.CultureInfo.InvariantCulture),
@@ -238,6 +238,13 @@ namespace BM.Data.EF
                     }
                 },
             };
+        }
+
+        private static string stringToBase64ByteArray(String input)
+        {
+            byte[] ret = System.Text.Encoding.Unicode.GetBytes(input);
+            string s = Convert.ToBase64String(ret);
+            return s;
         }
     }
 }

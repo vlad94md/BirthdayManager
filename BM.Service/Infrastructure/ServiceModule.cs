@@ -1,5 +1,6 @@
 ﻿using BM.Data.EF;
 using BM.Data.Infrastructure;
+using BM.Service.Interfaces;
 using Ninject.Modules;
 
 namespace BM.Service.Infrastructure
@@ -9,7 +10,6 @@ namespace BM.Service.Infrastructure
         public override void Load()
         {
             Bind<IUnitOfWork>().To<UnitOfWork>();
-            Bind<IBirthdaysContext>().To<BirthdaysContext>();
         }
     }
 }

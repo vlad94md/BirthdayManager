@@ -97,6 +97,8 @@
     <Compile Include="Entities\Gift.cs" />
     <Compile Include="Entities\Payment.cs" />
     <Compile Include="EF\IBirthdaysContext.cs" />
+    <Compile Include="Identity\ApplicationRoleManager.cs" />
+    <Compile Include="Identity\ApplicationUserManager.cs" />
     <Compile Include="Migrations\201611051408518_addedIndentity.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\Interfaces\IBirthdayArrangementRepository.cs" />

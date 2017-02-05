@@ -227,7 +227,6 @@
     <Content Include="img\rarrow.png" />
     <Content Include="img\saturation.png" />
     <Content Include="node_modules\.bin\sha.js" />
-    <Content Include="node_modules\acorn\.gitattributes" />
     <Content Include="node_modules\acorn\bin\generate-identifier-regex.js" />
     <Content Include="node_modules\acorn\dist\acorn.es.js" />
     <Content Include="node_modules\acorn\dist\acorn.js" />
@@ -2202,7 +2201,6 @@
     <Content Include="node_modules\pbkdf2-compat\index.js" />
     <Content Include="node_modules\pbkdf2-compat\pbkdf2.js" />
     <Content Include="node_modules\pbkdf2-compat\test\index.js" />
-    <Content Include="node_modules\preserve\.gitattributes" />
     <Content Include="node_modules\preserve\index.js" />
     <Content Include="node_modules\preserve\test.js" />
     <Content Include="node_modules\process-nextick-args\index.js" />
@@ -2611,21 +2609,6 @@
     <Content Include="node_modules\source-list-map\lib\MappingsContext.js" />
     <Content Include="node_modules\source-list-map\lib\SourceListMap.js" />
     <Content Include="node_modules\source-list-map\lib\SourceNode.js" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\babel-source.js" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\babel.generated.js" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\babel2-source.js" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\babel2.generated.js" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\empty-lines.generated.txt" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\file-offset.generated.txt" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\hello-world1.generated.txt" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\hello-world2.generated.txt" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\hello-world3.generated.txt" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\mismatched-mappings.generated.txt" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\multiple-file.generated.txt" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\multiple-mappings-per-line.generated.txt" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\no-source-contents.generated.txt" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\null-source.generated.txt" />
-    <Content Include="node_modules\source-list-map\test\fromStringWithSourceMapTest.js" />
     <Content Include="node_modules\source-map-loader\index.js" />
     <Content Include="node_modules\source-map-loader\test\fixtures\external-source-map.js" />
     <Content Include="node_modules\source-map-loader\test\fixtures\external-source-map2.js" />
@@ -2682,6 +2665,7 @@
     <Content Include="node_modules\stream-http\test\browser\post-text.js" />
     <Content Include="node_modules\stream-http\test\browser\text-streaming.js" />
     <Content Include="node_modules\stream-http\test\browser\text.js" />
+    <Content Include="node_modules\stream-http\test\browser\timeout.js" />
     <Content Include="node_modules\stream-http\test\browser\webworker.js" />
     <Content Include="node_modules\stream-http\test\node\http-browserify.js" />
     <Content Include="node_modules\stream-http\test\server\index.js" />
@@ -2692,13 +2676,10 @@
     <Content Include="node_modules\string_decoder\index.js" />
     <Content Include="node_modules\supports-color\browser.js" />
     <Content Include="node_modules\supports-color\index.js" />
-    <Content Include="node_modules\tapable\.gitattributes" />
     <Content Include="node_modules\tapable\lib\Tapable.js" />
-    <Content Include="node_modules\tapable\test\applyPluginsParallelBailResultTest.js" />
     <Content Include="node_modules\timers-browserify\main.js" />
     <Content Include="node_modules\to-arraybuffer\index.js" />
     <Content Include="node_modules\to-arraybuffer\test.js" />
-    <Content Include="node_modules\ts-loader\.gitattributes" />
     <Content Include="node_modules\ts-loader\dist\after-compile.js" />
     <Content Include="node_modules\ts-loader\dist\compilerSetup.js" />
     <Content Include="node_modules\ts-loader\dist\config.js" />
@@ -2788,7 +2769,6 @@
     <Content Include="node_modules\vm-browserify\test\vm.js" />
     <Content Include="node_modules\warning\browser.js" />
     <Content Include="node_modules\warning\warning.js" />
-    <Content Include="node_modules\watchpack\.gitattributes" />
     <Content Include="node_modules\watchpack\lib\DirectoryWatcher.js" />
     <Content Include="node_modules\watchpack\lib\watcherManager.js" />
     <Content Include="node_modules\watchpack\lib\watchpack.js" />
@@ -2797,7 +2777,6 @@
     <Content Include="node_modules\watchpack\test\DirectoryWatcher.test.js" />
     <Content Include="node_modules\watchpack\test\helpers\TestHelper.js" />
     <Content Include="node_modules\watchpack\test\watchpack.js" />
-    <Content Include="node_modules\webpack-core\.gitattributes" />
     <Content Include="node_modules\webpack-core\lib\CachedSource.js" />
     <Content Include="node_modules\webpack-core\lib\ConcatSource.js" />
     <Content Include="node_modules\webpack-core\lib\LineToLineMappedSource.js" />
@@ -3067,17 +3046,14 @@
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\lib\ResultSymlinkPlugin.js" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\lib\SyncNodeJsInputFileSystem.js" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\lib\UnsafeCachePlugin.js" />
-    <Content Include="node_modules\webpack\node_modules\enhanced-resolve\node_modules\memory-fs\.gitattributes" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\node_modules\memory-fs\lib\join.js" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\node_modules\memory-fs\lib\MemoryFileSystem.js" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\node_modules\memory-fs\lib\normalize.js" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\node_modules\memory-fs\test\MemoryFileSystem.js" />
-    <Content Include="node_modules\webpack\node_modules\memory-fs\.gitattributes" />
     <Content Include="node_modules\webpack\node_modules\memory-fs\lib\join.js" />
     <Content Include="node_modules\webpack\node_modules\memory-fs\lib\MemoryFileSystem.js" />
     <Content Include="node_modules\webpack\node_modules\memory-fs\lib\normalize.js" />
     <Content Include="node_modules\webpack\node_modules\memory-fs\test\MemoryFileSystem.js" />
-    <Content Include="node_modules\webpack\node_modules\tapable\.gitattributes" />
     <Content Include="node_modules\webpack\node_modules\tapable\lib\Tapable.js" />
     <Content Include="node_modules\webpack\node_modules\tapable\test\applyPluginsParallelBailResultTest.js" />
     <Content Include="node_modules\webpack\web_modules\node-libs-browser.js" />
@@ -3125,6 +3101,7 @@
     <Content Include="node_modules\.bin\webpack" />
     <Content Include="node_modules\.bin\webpack.cmd" />
     <Content Include="node_modules\acorn\.editorconfig" />
+    <Content Include="node_modules\acorn\.gitattributes" />
     <Content Include="node_modules\acorn\.npmignore" />
     <Content Include="node_modules\acorn\.tern-project" />
     <Content Include="node_modules\acorn\.travis.yml" />
@@ -3747,6 +3724,7 @@
     <Content Include="node_modules\pbkdf2-compat\package.json" />
     <Content Include="node_modules\pbkdf2-compat\README.md" />
     <Content Include="node_modules\pbkdf2-compat\test\fixtures.json" />
+    <Content Include="node_modules\preserve\.gitattributes" />
     <Content Include="node_modules\preserve\.jshintrc" />
     <Content Include="node_modules\preserve\.npmignore" />
     <Content Include="node_modules\preserve\.travis.yml" />
@@ -4080,36 +4058,10 @@
     <Content Include="node_modules\sha.js\test\prepare\vectors\byte0193.dat" />
     <Content Include="node_modules\sha.js\test\prepare\vectors\byte0194.dat" />
     <Content Include="node_modules\sha.js\test\prepare\vectors\byte0195.dat" />
-    <Content Include="node_modules\source-list-map\.editorconfig" />
-    <Content Include="node_modules\source-list-map\.npmignore" />
-    <Content Include="node_modules\source-list-map\.travis.yml" />
     <Content Include="node_modules\source-list-map\package.json" />
     <Content Include="node_modules\source-list-map\README.md" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\babel.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\babel.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\babel2.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\babel2.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\empty-lines.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\empty-lines.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\file-offset.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\file-offset.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\hello-world1.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\hello-world1.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\hello-world2.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\hello-world2.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\hello-world3.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\hello-world3.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\mismatched-mappings.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\mismatched-mappings.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\multiple-file.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\multiple-file.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\multiple-mappings-per-line.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\multiple-mappings-per-line.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\no-source-contents.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\no-source-contents.input.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\null-source.expected.map" />
-    <Content Include="node_modules\source-list-map\test\fixtures\from-to-tests\null-source.input.map" />
     <Content Include="node_modules\source-map-loader\.npmignore" />
+    <Content Include="node_modules\source-map-loader\LICENSE" />
     <Content Include="node_modules\source-map-loader\package.json" />
     <Content Include="node_modules\source-map-loader\README.md" />
     <Content Include="node_modules\source-map-loader\test\fixtures\data\external-source-map2.map" />
@@ -4148,9 +4100,6 @@
     <Content Include="node_modules\supports-color\license" />
     <Content Include="node_modules\supports-color\package.json" />
     <Content Include="node_modules\supports-color\readme.md" />
-    <Content Include="node_modules\tapable\.eslintrc" />
-    <Content Include="node_modules\tapable\.npmignore" />
-    <Content Include="node_modules\tapable\.travis.yml" />
     <Content Include="node_modules\tapable\package.json" />
     <Content Include="node_modules\tapable\README.md" />
     <Content Include="node_modules\timers-browserify\.npmignore" />
@@ -4164,6 +4113,7 @@
     <Content Include="node_modules\to-arraybuffer\LICENSE" />
     <Content Include="node_modules\to-arraybuffer\package.json" />
     <Content Include="node_modules\to-arraybuffer\README.md" />
+    <Content Include="node_modules\ts-loader\.gitattributes" />
     <Content Include="node_modules\ts-loader\.npmignore" />
     <Content Include="node_modules\ts-loader\.travis.yml" />
     <Content Include="node_modules\ts-loader\appveyor.yml" />
@@ -4182,9 +4132,7 @@
     <Content Include="node_modules\typescript\bin\tsc" />
     <Content Include="node_modules\typescript\bin\tsserver" />
     <Content Include="node_modules\typescript\CONTRIBUTING.md" />
-    <Content Include="node_modules\typescript\jenkins.sh" />
     <Content Include="node_modules\typescript\lib\README.md" />
-    <Content Include="node_modules\typescript\netci.groovy" />
     <Content Include="node_modules\typescript\package.json" />
     <Content Include="node_modules\typescript\README.md" />
     <Content Include="node_modules\typescript\test.config" />
@@ -4248,12 +4196,14 @@
     <Content Include="node_modules\warning\package.json" />
     <Content Include="node_modules\warning\README.md" />
     <Content Include="node_modules\watchpack\.eslintrc" />
+    <Content Include="node_modules\watchpack\.gitattributes" />
     <Content Include="node_modules\watchpack\.npmignore" />
     <Content Include="node_modules\watchpack\.travis.yml" />
     <Content Include="node_modules\watchpack\appveyor.yml" />
     <Content Include="node_modules\watchpack\package.json" />
     <Content Include="node_modules\watchpack\README.md" />
     <Content Include="node_modules\webpack-core\.editorconfig" />
+    <Content Include="node_modules\webpack-core\.gitattributes" />
     <Content Include="node_modules\webpack-core\.npmignore" />
     <Content Include="node_modules\webpack-core\node_modules\source-map\build\prefix-source-map.jsm" />
     <Content Include="node_modules\webpack-core\node_modules\source-map\build\prefix-utils.jsm" />
@@ -4268,16 +4218,19 @@
     <Content Include="node_modules\webpack\node_modules\async\LICENSE" />
     <Content Include="node_modules\webpack\node_modules\async\package.json" />
     <Content Include="node_modules\webpack\node_modules\async\README.md" />
+    <Content Include="node_modules\webpack\node_modules\enhanced-resolve\node_modules\memory-fs\.gitattributes" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\node_modules\memory-fs\.npmignore" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\node_modules\memory-fs\.travis.yml" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\node_modules\memory-fs\package.json" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\node_modules\memory-fs\README.md" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\package.json" />
     <Content Include="node_modules\webpack\node_modules\enhanced-resolve\README.md" />
+    <Content Include="node_modules\webpack\node_modules\memory-fs\.gitattributes" />
     <Content Include="node_modules\webpack\node_modules\memory-fs\.npmignore" />
     <Content Include="node_modules\webpack\node_modules\memory-fs\.travis.yml" />
     <Content Include="node_modules\webpack\node_modules\memory-fs\package.json" />
     <Content Include="node_modules\webpack\node_modules\memory-fs\README.md" />
+    <Content Include="node_modules\webpack\node_modules\tapable\.gitattributes" />
     <Content Include="node_modules\webpack\node_modules\tapable\.npmignore" />
     <Content Include="node_modules\webpack\node_modules\tapable\.travis.yml" />
     <Content Include="node_modules\webpack\node_modules\tapable\package.json" />
@@ -4317,7 +4270,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\UserManager.cs" />
+    <Compile Include="App_Start\AppUserManager.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -4353,13 +4306,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="node_modules\ts-loader\examples\" />
     <Folder Include="WorkFiles\Prod\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BM.Data\BM.Data.csproj">
-      <Project>{8DB528DA-B6B9-4D03-AA9E-8B8F50A0E46A}</Project>
-      <Name>BM.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BM.Service\BM.Service.csproj">
       <Project>{6bd95c9f-9203-4425-9c90-18ac92deec55}</Project>
       <Name>BM.Service</Name>
@@ -4368,7 +4318,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="node_modules\iconv-lite\lib\index.d.ts" />
     <TypeScriptCompile Include="node_modules\moment\moment.d.ts" />
-    <TypeScriptCompile Include="node_modules\typescript\Gulpfile.ts" />
     <TypeScriptCompile Include="node_modules\typescript\lib\lib.d.ts" />
     <TypeScriptCompile Include="node_modules\typescript\lib\lib.dom.d.ts" />
     <TypeScriptCompile Include="node_modules\typescript\lib\lib.dom.iterable.d.ts" />

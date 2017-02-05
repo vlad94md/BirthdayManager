@@ -2,6 +2,7 @@
 using BM.Data.Entities;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using BM.Data.Configurations;
 
 namespace BM.Data.EF
 {
@@ -10,7 +11,7 @@ namespace BM.Data.EF
         public BirthdaysContext() : base("BMEntities")
         {
             Database.SetInitializer(new BirthdaysSeedData());
-            Database.Initialize(true);
+            //Database.Initialize(true);
         }
 
         public DbSet<BirthdayArrangement> BirthdayArrangements { get; set; }

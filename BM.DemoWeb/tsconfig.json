@@ -5,6 +5,7 @@
     "noImplicitAny": false,
     "noEmitOnError": true,
     "removeComments": false,
+    "watch": false,
     "sourceMap": true,
     "target": "es6",
     "jsx": "react"
