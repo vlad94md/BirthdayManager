@@ -1,8 +1,8 @@
 ﻿using BM.Data.Configuration;
+using BM.Data.Configurations;
 using BM.Data.Entities;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
-using BM.Data.Configurations;
 
 namespace BM.Data.EF
 {

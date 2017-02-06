@@ -1,16 +1,15 @@
-﻿using System;
+﻿using BM.DemoWeb.Models;
+using BM.Service.Dto;
+using BM.Service.Interfaces;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using BM.DemoWeb.Models;
-using BM.Service.Dto;
-using BM.Service.Infrastructure;
-using BM.Service.Interfaces;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 
 namespace BM.DemoWeb.Controllers
 {
@@ -26,48 +25,6 @@ namespace BM.DemoWeb.Controllers
         {
             get { return HttpContext.GetOwinContext().Authentication; }
         }
-
-        //[HttpGet]
-        //public ActionResult LogIn(string returnUrl = "/auth")
-        //{
-        //    var model = new LogInModel
-        //    {
-        //        ReturnUrl = returnUrl
-        //    };
-
-        //    return View(model);
-        //}
-
-        //[HttpPost]
-        //public ActionResult LogIn(LogInModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View();
-        //    }
-
-        //    // Don't do this in production!
-        //    if (model.Username == "admin" && model.Password == "admin")
-        //    {
-        //        var identity = new ClaimsIdentity(new[] {
-        //        new Claim(ClaimTypes.Name, "Admin"),
-        //        new Claim(ClaimTypes.Email, "a@b.com"),
-        //        new Claim(ClaimTypes.Country, "England")
-        //    },
-        //            "ApplicationCookie");
-
-        //        var ctx = Request.GetOwinContext();
-        //        var authManager = ctx.Authentication;
-
-        //        authManager.SignIn(identity);
-
-        //        return Redirect(GetRedirectUrl(model.ReturnUrl));
-        //    }
-
-        //    // user authN failed
-        //    ModelState.AddModelError("", "Invalid username or password");
-        //    return View();
-        //}
 
         public ActionResult Login()
         {
@@ -102,34 +59,6 @@ namespace BM.DemoWeb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //public ActionResult Register()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Register(RegisterModel model)
-        //{
-        //    await SetInitialDataAsync();
-        //    if (ModelState.IsValid)
-        //    {
-        //        User userDto = new User
-        //        {
-        //            Email = model.Email,
-        //            Password = model.Password,
-        //            Address = model.Address,
-        //            Name = model.Name,
-        //            Role = "user"
-        //        };
-        //        OperationDetails operationDetails = await UserService.Create(userDto);
-        //        if (operationDetails.Succedeed)
-        //            return View("SuccessRegister");
-        //        else
-        //            ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
-        //    }
-        //    return View(model);
-        //}
 
         private async Task SetInitialDataAsync()
         {
